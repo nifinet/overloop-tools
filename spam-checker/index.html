@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Cold Email Spam Checker — Score Your Email Before You Send | Overloop</title>
+<meta name="description" content="Paste your cold email. Get scored on 7 dimensions — not just spam words. See exactly what to fix and why. Free, no signup.">
+<meta property="og:title" content="Cold Email Spam Checker | Overloop">
+<meta property="og:description" content="Don't guess if your email will land in inbox. Check it in 5 seconds.">
+<meta property="og:url" content="https://tools.overloop.com/spam-checker/">
+<link rel="canonical" href="https://tools.overloop.com/spam-checker/">
+<link rel="alternate" hreflang="en" href="https://tools.overloop.com/spam-checker/">
+<link rel="alternate" hreflang="fr" href="https://tools.overloop.com/fr/spam-checker/">
+<link rel="alternate" hreflang="x-default" href="https://tools.overloop.com/spam-checker/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7C3AED;--primary-dark:#6D28D9;--primary-light:#A78BFA;--primary-ultra-light:#EDE9FE;--primary-faint:#F5F3FF;--bg:#FAFAFA;--surface:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB;--border-light:#F3F4F6;--text:#1F2937;--text2:#6B7280;--muted:#9CA3AF;--ok:#10B981;--warn:#F59E0B;--danger:#EF4444;--mono:'JetBrains Mono',monospace;--sans:'Epilogue',-apple-system,BlinkMacSystemFont,sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);--shadow-glow:0 0 40px rgba(124,58,237,0.25);--r:0.75rem;--r-xl:1rem;--r-2xl:1.5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.page{padding:0 48px}}
+.nav{display:flex;align-items:center;gap:.75rem;padding:0 16px;height:60px;border-bottom:1px solid var(--border-light);margin-bottom:32px;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:100}
+@media(min-width:640px){.nav{padding:0 48px;height:72px;gap:2rem;margin-bottom:48px}}
+.nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:22px;width:auto}
+@media(min-width:640px){.nav-logo-img{height:28px}}
+.nav-links{display:none;gap:1.5rem;margin-right:auto}
+@media(min-width:640px){.nav-links{display:flex}}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.nav-links a:hover,.nav-link-active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:.75rem;margin-left:auto}
+.nav-login{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.5rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:.9375rem;font-weight:600;font-family:var(--sans);cursor:pointer;text-decoration:none;box-shadow:var(--shadow-md);transition:all 200ms ease}
+.btn:hover{background:var(--primary-dark);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.btn-nav{padding:.5rem 1.25rem;font-size:.8125rem}
+.btn-glow{background:linear-gradient(135deg,#7C3AED,#5B21B6);padding:1rem 2.5rem;border-radius:var(--r-xl);font-size:1rem;box-shadow:var(--shadow-glow)}
+.btn-glow:hover{box-shadow:0 0 60px rgba(124,58,237,0.4);transform:translateY(-2px)}
+.hero-wrap{background:linear-gradient(180deg,#FFFFFF 0%,#F5F3FF 50%,#FAFAFA 100%);margin:-32px -16px 32px;padding:32px 16px}
+@media(min-width:640px){.hero-wrap{margin:-48px -48px 48px;padding:48px}}
+.hero{text-align:center;max-width:720px;margin:0 auto}
+.hero h1{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.hero p{font-size:16px;color:var(--text2)}
+@media(min-width:640px){.hero p{font-size:18px}}
+.tool{max-width:720px;margin:0 auto 32px}
+@media(min-width:640px){.tool{margin-bottom:48px}}
+.input-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.25rem;margin-bottom:24px;box-shadow:var(--shadow-xl)}
+@media(min-width:640px){.input-card{border-radius:var(--r-2xl);padding:2rem}}
+.input-card h2{font-size:16px;font-weight:700;margin-bottom:4px}
+@media(min-width:640px){.input-card h2{font-size:18px}}
+.input-card>p{font-size:13px;color:var(--text2);margin-bottom:16px}
+.email-input{width:100%;min-height:280px;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);font-size:.875rem;font-family:var(--sans);background:var(--white);color:var(--text);resize:vertical;transition:border-color 150ms ease;margin-bottom:8px}
+@media(min-width:640px){.email-input{min-height:320px;font-size:.9375rem}}
+.email-input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+.examples{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.ex-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--bg);border:1px solid var(--border-light);border-radius:999px;font-size:12px;font-weight:500;font-family:var(--sans);color:var(--text2);cursor:pointer;transition:all 150ms ease}
+.ex-chip:hover{border-color:var(--primary-light);color:var(--text);background:var(--primary-faint)}
+.ex-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+/* Quick template chips */
+.quick-tpl{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.qt-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--bg);border:1px solid var(--border-light);border-radius:999px;font-size:12px;font-weight:500;font-family:var(--sans);color:var(--text2);cursor:pointer;transition:all 150ms}
+.qt-chip:hover{border-color:var(--primary-light);color:var(--text);background:var(--primary-faint)}
+.qt-chip .qt-score{font-family:var(--mono);font-size:10px;color:var(--ok);font-weight:700}
+
+/* Template gallery */
+
+.char-count{font-size:11px;color:var(--muted);text-align:right;margin-bottom:8px}
+.char-count strong{color:var(--text)}
+
+/* Live score pill (always visible when typing) */
+.live-score{position:sticky;top:60px;z-index:50;margin:-12px 0 16px;padding:10px 16px;background:var(--white);border:1px solid var(--border-light);border-radius:var(--r);box-shadow:var(--shadow-md);display:none;align-items:center;justify-content:space-between;gap:12px}
+@media(min-width:640px){.live-score{top:72px}}
+.live-score.show{display:flex}
+.ls-left{display:flex;align-items:center;gap:10px}
+.ls-num{font-family:var(--mono);font-size:24px;font-weight:700;transition:color 300ms}
+.ls-label{font-size:13px;color:var(--text2)}
+.ls-bar{flex:1;height:6px;border-radius:3px;background:var(--surface);min-width:60px;overflow:hidden}
+.ls-bar-fill{height:100%;border-radius:3px;transition:width 300ms,background 300ms}
+.ls-delta{font-family:var(--mono);font-size:13px;font-weight:700;margin-left:6px;opacity:0;transition:opacity 300ms}
+.ls-delta.show{opacity:1}
+.ls-delta.up{color:var(--ok)}
+.ls-delta.down{color:var(--danger)}
+
+/* Fix-first box */
+.fix-first{background:var(--white);border:2px solid var(--danger);border-radius:var(--r-xl);padding:1rem;margin-bottom:20px;display:none}
+@media(min-width:640px){.fix-first{padding:1.25rem;margin-bottom:24px}}
+.fix-first.show{display:block}
+.fix-first h3{font-size:14px;font-weight:700;color:var(--danger);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.fix-first.good{border-color:var(--ok)}
+.fix-first.good h3{color:var(--ok)}
+.ff-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--border-light);font-size:13px}
+.ff-item:last-child{border-bottom:none}
+.ff-num{width:20px;height:20px;border-radius:50%;background:var(--danger);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ff-text{flex:1}
+.ff-text strong{font-weight:700}
+
+/* Dimension cards */
+.dims{display:grid;gap:8px;margin-bottom:20px}
+@media(min-width:640px){.dims{gap:10px;margin-bottom:28px}}
+.dim{border:1px solid var(--border-light);border-radius:var(--r);background:var(--white);transition:all 200ms ease;overflow:hidden}
+.dim-header{display:flex;justify-content:space-between;align-items:center;padding:12px;cursor:pointer}
+@media(min-width:640px){.dim-header{padding:14px 16px}}
+.dim-name{font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px}
+@media(min-width:640px){.dim-name{font-size:14px}}
+.dim-right{display:flex;align-items:center;gap:8px}
+.dim-score{font-family:var(--mono);font-weight:700;font-size:13px}
+.dim-chevron{color:var(--muted);font-size:12px;transition:transform 200ms}
+.dim.open .dim-chevron{transform:rotate(180deg)}
+.dim-bar{height:3px;background:var(--surface)}
+.dim-bar-fill{height:100%;transition:width 500ms}
+.dim-body{display:none;padding:0 12px 12px}
+@media(min-width:640px){.dim-body{padding:0 16px 14px}}
+.dim.open .dim-body{display:block}
+.dim-detail{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:6px}
+.dim-fix{padding:8px 10px;background:var(--primary-faint);border-radius:6px;font-size:12px;color:var(--primary-dark)}
+.dim-fix strong{font-weight:700}
+
+/* Annotated email with clickable fixes */
+.flagged-section{margin-bottom:20px}
+@media(min-width:640px){.flagged-section{margin-bottom:28px}}
+.flagged-email{padding:1rem;background:var(--white);border:1px solid var(--border-light);border-radius:var(--r);font-size:14px;line-height:1.8;white-space:pre-wrap;word-wrap:break-word}
+mark.critical{background:rgba(239,68,68,0.15);color:#991B1B;border-radius:2px;padding:1px 3px;cursor:pointer;transition:background 150ms}
+mark.critical:hover{background:rgba(239,68,68,0.3)}
+mark.warning{background:rgba(245,158,11,0.15);color:#92400E;border-radius:2px;padding:1px 3px;cursor:pointer;transition:background 150ms}
+mark.warning:hover{background:rgba(245,158,11,0.3)}
+mark.minor{background:rgba(124,58,237,0.1);color:var(--primary-dark);border-radius:2px;padding:1px 3px;cursor:pointer;transition:background 150ms}
+mark.minor:hover{background:rgba(124,58,237,0.2)}
+.flag-legend{display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--text2);flex-wrap:wrap}
+.leg-dot{display:inline-block;padding:1px 6px;border-radius:3px;font-weight:600;font-size:10px}
+
+/* Fix popover */
+.fix-pop{position:absolute;z-index:60;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:10px;box-shadow:var(--shadow-lg);max-width:280px;font-size:12px;display:none}
+.fix-pop.show{display:block}
+.fix-pop-title{font-weight:700;color:var(--danger);margin-bottom:4px}
+.fix-pop-why{color:var(--text2);margin-bottom:8px;line-height:1.5}
+.fix-pop-btn{display:inline-flex;padding:5px 12px;background:var(--primary);color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:var(--sans)}
+.fix-pop-btn:hover{background:var(--primary-dark)}
+
+/* Fix all + copy bar */
+.action-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+@media(min-width:640px){.action-bar{margin-bottom:24px}}
+.action-bar .btn{font-size:13px;padding:8px 16px}
+.btn-sm{font-size:13px!important;padding:8px 16px!important}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid rgba(124,58,237,0.2);box-shadow:none}
+.btn-outline:hover{border-color:var(--primary);background:var(--primary-faint);box-shadow:none}
+
+/* Inbox preview */
+.inbox-section{margin-bottom:20px}
+@media(min-width:640px){.inbox-section{margin-bottom:28px}}
+.inbox-toggle{display:flex;gap:4px;margin-bottom:10px}
+.inbox-toggle button{padding:4px 10px;border-radius:999px;border:1px solid var(--border-light);background:var(--bg);font-size:11px;font-weight:500;font-family:var(--sans);color:var(--text2);cursor:pointer}
+.inbox-toggle button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.inbox-mock{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;font-size:13px}
+.inbox-row{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid var(--border-light);gap:10px;min-height:44px}
+@media(min-width:640px){.inbox-row{padding:10px 16px}}
+.inbox-row:last-child{border-bottom:none}
+.inbox-row.yours{background:var(--primary-faint)}
+.inbox-star{color:var(--muted);font-size:14px;flex-shrink:0}
+.inbox-avatar{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+.inbox-content{flex:1;min-width:0;display:flex;gap:6px;align-items:baseline}
+.inbox-sender{font-weight:600;font-size:13px;flex-shrink:0;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.inbox-subject{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inbox-preview{color:var(--text2);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+.inbox-time{font-size:11px;color:var(--muted);flex-shrink:0;white-space:nowrap}
+.inbox-sep{color:var(--muted);flex-shrink:0}
+.inbox-mobile .inbox-content{flex-direction:column;gap:1px}
+.inbox-mobile .inbox-subject,.inbox-mobile .inbox-preview{font-size:12px}
+.inbox-mobile .inbox-sender{max-width:none}
+
+
+/* Version history */
+.versions{display:flex;gap:8px;margin-bottom:20px;align-items:center;flex-wrap:wrap}
+@media(min-width:640px){.versions{margin-bottom:24px}}
+.ver-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-family:var(--mono);font-size:11px;font-weight:700;border:1px solid var(--border-light);background:var(--bg)}
+.ver-arrow{color:var(--muted);font-size:12px}
+.ver-delta{font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 6px;border-radius:4px}
+.ver-up{background:rgba(16,185,129,0.1);color:var(--ok)}
+.ver-down{background:rgba(239,68,68,0.1);color:var(--danger)}
+
+/* CTA */
+.cta-soft{text-align:center;padding:1.5rem;background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r-xl);margin:32px 0}
+@media(min-width:640px){.cta-soft{padding:2rem;border-radius:var(--r-2xl);margin:40px 0}}
+.cta-soft h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.cta-soft p{color:var(--text2);margin-bottom:16px;font-size:14px}
+.cta-hard{text-align:center;padding:2.5rem 1.5rem;background:#1F2937;border-radius:var(--r-xl);color:#fff;margin:32px auto;max-width:720px}
+@media(min-width:640px){.cta-hard{padding:3rem 2rem;border-radius:var(--r-2xl);margin:48px auto}}
+.cta-hard h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.cta-hard h3 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.cta-hard p{opacity:.8;margin-bottom:18px;font-size:14px}
+.section{margin:0 auto;padding:3rem 0;max-width:720px}
+@media(min-width:640px){.section{padding:4rem 0}}
+.section h2{font-size:20px;font-weight:700;margin-bottom:1.5rem}
+.section h2 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.steps{display:grid;gap:20px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step{text-align:center;padding:16px 12px}
+.step-n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-ultra-light);color:var(--primary);font-weight:700;font-size:15px;margin-bottom:10px}
+.step h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step p{font-size:13px;color:var(--text2)}
+.section.section-lavender{background:#F5F3FF;max-width:none;padding-left:16px;padding-right:16px;margin-left:-16px;margin-right:-16px}
+@media(min-width:640px){.section.section-lavender{margin-left:-48px;margin-right:-48px;padding-left:48px;padding-right:48px}}
+.section-lavender .section-inner{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;cursor:pointer;font-size:14px;font-weight:600;background:none;border:none;width:100%;text-align:left;color:var(--text);font-family:var(--sans)}
+@media(min-width:640px){.faq-q{font-size:15px;padding:1.25rem 0}}
+.faq-q::after{content:'+';font-size:18px;color:var(--muted);margin-left:12px}
+.faq-q.open::after{content:'\2212'}
+.faq-a{padding:0 0 1rem;font-size:13px;color:var(--text2);line-height:1.7;display:none}
+.faq-a.open{display:block}
+.related{display:grid;gap:10px}
+@media(min-width:640px){.related{grid-template-columns:repeat(3,1fr);gap:14px}}
+.related a{padding:1rem;border:1px solid var(--border-light);border-radius:var(--r-xl);text-decoration:none;color:var(--text);background:var(--white);transition:all 300ms ease}
+.related a:hover{border-color:var(--primary-light);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.related h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.related p{font-size:12px;color:var(--text2)}
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:4rem;text-align:center;font-size:13px;color:var(--muted)}
+.footer a{color:var(--primary);text-decoration:none}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://overloop.com" class="nav-logo"><img src="https://cdn.prod.website-files.com/6836b1fcfa0b25a3fed39db6/69d4cb02974de95cb4df5bd0_Logotype%20-%20Black.png" alt="Overloop" class="nav-logo-img"></a>
+  <div class="nav-links"><a href="https://overloop.com/features">Features</a><a href="https://overloop.com/pricing">Pricing</a><a href="/" class="nav-link-active">Free tools</a></div>
+  <div class="nav-right"><a href="https://app.overloop.ai/session/login" class="nav-login">Login</a><a href="https://app.overloop.ai/session/signup" class="btn btn-nav">Sign up free</a></div>
+</nav>
+<div class="page">
+<div class="hero-wrap"><div class="hero">
+  <h1>Is your email going to <em>spam?</em></h1>
+  <p>We loaded a high-scoring template. Paste your own email to see how it compares.</p>
+</div></div>
+
+<div class="tool">
+  <!-- Live score pill (sticky, shows while editing) -->
+  <div class="live-score" id="liveScore">
+    <div class="ls-left">
+      <div class="ls-num" id="lsNum">0</div><span class="ls-delta" id="lsDelta"></span>
+      <div class="ls-label" id="lsLabel">Start typing...</div>
+    </div>
+    <div class="ls-bar"><div class="ls-bar-fill" id="lsBar"></div></div>
+  </div>
+
+  <div class="input-card">
+    <h2>Paste your cold email</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:10px">Or start from a proven template:</p>
+    <div class="quick-tpl" id="quickTpl"></div>
+    <input type="text" class="email-input" id="subjectLine" style="min-height:auto;margin-bottom:8px" oninput="liveAnalyze()" value="{{firstName}}, quick thought">
+    <textarea class="email-input" id="emailBody" oninput="liveAnalyze()">Hi {{firstName}},
+
+Saw that {{company}} just raised a Series B. Congrats.
+
+Usually after a raise, the pressure to hit pipeline targets goes up fast. Hiring SDRs takes 3 months. Cold email can fill the gap in 3 weeks.
+
+We run the outbound engine for 200+ B2B SaaS companies. Average: 18 qualified meetings per month, $0 in ad spend.
+
+Would it make sense to chat for 15 min this week?
+
+John
+VP Sales, Overloop</textarea>
+    <div class="char-count"><strong id="wordCount">0</strong> words · <strong id="charCount">0</strong> characters</div>
+
+  </div>
+
+  <!-- Inbox preview: ALWAYS visible, updates live -->
+  <div class="inbox-section" id="inboxSection" style="margin-bottom:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h2 style="font-size:14px;font-weight:700;margin:0">What your prospect sees in Gmail</h2>
+      <div class="inbox-toggle">
+        <button class="active" onclick="setInboxView('desktop',this)">Desktop</button>
+        <button onclick="setInboxView('mobile',this)">Mobile</button>
+      </div>
+    </div>
+    <div class="inbox-mock" id="inboxMock"></div>
+  </div>
+
+  <!-- Results (shown after first input) -->
+  <div class="results" id="results">
+    <!-- Version history -->
+    <div class="versions" id="versions" style="display:none"></div>
+
+    <!-- Fix these first (top 3 issues) -->
+    <div class="fix-first" id="fixFirst"></div>
+
+    <!-- Action bar: Fix All + Copy -->
+    <div class="action-bar" id="actionBar" style="display:none">
+      <button class="btn btn-sm" onclick="fixAll()">Fix all spam words</button>
+      <button class="btn btn-outline btn-sm" onclick="copyFixed()">Copy clean email</button>
+    </div>
+
+    <!-- Annotated email with clickable words (hidden when clean) -->
+    <div class="flagged-section" id="flaggedSection" style="display:none">
+      <h2 style="font-size:16px;font-weight:700;margin-bottom:8px">Your email, annotated</h2>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:10px">Click a highlighted word to replace it.</p>
+      <div class="flagged-email" id="flaggedEmail" style="position:relative"></div>
+      <div class="flag-legend" id="flagLegend">
+        <span><span class="leg-dot" style="background:rgba(239,68,68,0.15);color:#991B1B">critical</span> high risk</span>
+        <span><span class="leg-dot" style="background:rgba(245,158,11,0.15);color:#92400E">warning</span> moderate</span>
+        <span><span class="leg-dot" style="background:rgba(124,58,237,0.1);color:var(--primary-dark)">minor</span> could improve</span>
+      </div>
+    </div>
+
+    <!-- 7 dimensions (sorted by severity, collapsed if passing) -->
+    <h2 style="font-size:16px;font-weight:700;margin-bottom:12px">Analysis breakdown</h2>
+    <div class="dims" id="dims"></div>
+  </div>
+</div>
+
+<!-- Soft CTA -->
+<div class="tool" style="margin-bottom:0">
+  <div class="cta-soft" id="ctaBlock" style="display:none">
+    <h3 id="ctaLine">Your email scores 73/100</h3>
+    <p>Fix the flagged issues, then send it to real prospects.</p>
+    <a href="https://app.overloop.ai/session/signup" class="btn" style="width:100%;max-width:320px">Send it with Overloop</a>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Not just spam words</h2>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:24px">Most spam checkers search for "guaranteed" and "free" and call it a day. We check 7 dimensions because deliverability is about more than vocabulary.</p>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Type or paste</h3><p>Score updates live as you write. No button to click.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Click to fix</h3><p>Click any highlighted word. We suggest a replacement. One click to swap it.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Copy and send</h3><p>Hit "Copy clean email" and paste it into your campaign.</p></div>
+  </div>
+</div>
+
+<div class="section section-lavender"><div class="section-inner">
+  <h2>Questions we get <em>every day</em></h2>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What's a good score?</button><div class="faq-a">80+ means your email should land in primary inbox for most recipients. 60-79 means it'll probably work but some providers might flag it. Below 60 means you should rewrite before sending.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Why 7 dimensions instead of just spam words?</button><div class="faq-a">Gmail in 2026 doesn't just match keywords. It looks at email length, link count, reading level, personalization, and CTA patterns. We check what the filters actually check.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does "feel free to reply" trigger the "free" warning?</button><div class="faq-a">No. We detect safe phrases like "feel free", "free to chat", "no problem", etc. and skip them. Context matters. A spam checker that flags "feel free" is useless.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How does "Fix all" work?</button><div class="faq-a">It replaces every flagged spam word with a safer alternative directly in your email. "Guaranteed" becomes "we consistently deliver." "Click here" becomes "see the details." You can undo by re-pasting your original.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Is this free?</button><div class="faq-a">Yes. Check and fix as many emails as you want. No signup, no limits.</div></div>
+</div></div>
+
+<div class="section">
+  <h2>More free tools</h2>
+  <div class="related">
+    <a href="/roi-calculator/"><h4>ROI calculator</h4><p>Will cold email work for you? See the actual numbers.</p></a>
+    <a href="/infrastructure-calculator/"><h4>Setup calculator</h4><p>How many domains do you actually need?</p></a>
+    <a href="/deliverability-checker/"><h4>Domain health check</h4><p>Is your SPF, DKIM, DMARC set up correctly?</p></a>
+  </div>
+</div>
+
+<div class="cta-hard">
+  <h3>Email checked. Time to <em>send it.</em></h3>
+  <p>Connect your mailboxes to Overloop. First campaign live in 15 minutes.</p>
+  <a href="https://app.overloop.ai/session/signup" class="btn-glow">Try Overloop free</a>
+</div>
+<footer class="footer"><a href="https://overloop.com">Overloop</a> — AI-powered outbound sales platform</footer>
+</div>
+
+<!-- Fix popover (singleton, moves around) -->
+<div class="fix-pop" id="fixPop">
+  <div class="fix-pop-title" id="fpTitle"></div>
+  <div class="fix-pop-why" id="fpWhy"></div>
+  <button class="fix-pop-btn" id="fpBtn" onclick="applyFix()">Replace</button>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let versionHistory=[];
+let currentFixTarget=null;
+let prevScore=null;
+let deltaTimer=null;
+
+// ===== TEMPLATES =====
+const TEMPLATES=[
+  {id:'saas-meeting',cat:'outbound',title:'SaaS — Book a meeting',desc:'Post-funding trigger. Short, specific, one question.',score:'87',
+    subject:'{{firstName}}, quick thought',
+    body:'Hi {{firstName}},\n\nSaw that {{company}} just raised a Series B. Congrats.\n\nUsually after a raise, the pressure to hit pipeline targets goes up fast. Hiring SDRs takes 3 months. Cold email can fill the gap in 3 weeks.\n\nWe run the outbound engine for 200+ B2B SaaS companies. Average: 18 qualified meetings per month, $0 in ad spend.\n\nWould it make sense to chat for 15 min this week?\n\nJohn'},
+  {id:'saas-hiring',cat:'outbound',title:'SaaS — Hiring trigger',desc:'They posted an SDR job listing. You offer the alternative.',score:'89',
+    subject:'Quick question about {{company}}',
+    body:'Hi {{firstName}},\n\nI noticed {{company}} is hiring a Head of Sales. Usually means outbound is becoming a priority.\n\nWe help B2B teams book 15-20 qualified meetings per month through cold email, without hiring an SDR.\n\nCompanies like Datadog and Notion use this approach to fill pipeline while keeping headcount lean.\n\nWorth a 15-min call this week?\n\nBest,\nJohn'},
+  {id:'agency-whitelabel',cat:'partnership',title:'Agency — White-label pitch',desc:'Offer your platform as a service they resell.',score:'91',
+    subject:"Your clients' outbound",
+    body:'Hi {{firstName}},\n\nI run Overloop. We work with agencies like {{company}} who want to add outbound as a service for their clients.\n\nThe model: you white-label our platform, charge your clients 3-4x what you pay us, and we handle the infrastructure.\n\nThree of your competitors already do this. Happy to share the playbook.\n\nOpen to a quick call?\n\nJohn'},
+  {id:'agency-referral',cat:'partnership',title:'Agency — Referral program',desc:'Simple rev-share pitch. Numbers upfront.',score:'88',
+    subject:'20% recurring for referrals',
+    body:'Hi {{firstName}},\n\nI noticed {{company}} works with B2B clients who probably need outbound.\n\nWe pay 20% lifetime recurring commission for every client you refer to Overloop. Average deal = $99/mo. Three referrals = $712/yr in passive revenue.\n\nNo pitch needed on your end. Just make the intro, we close.\n\nWant me to send the partner details?\n\nJohn'},
+  {id:'ecom-cro',cat:'outbound',title:'E-commerce — CRO angle',desc:'Target e-com brands with data-driven opening.',score:'86',
+    subject:'{{company}} conversion rates',
+    body:'Hi {{firstName}},\n\nI looked at {{company}} and noticed a few things on the checkout flow that might be leaving revenue on the table.\n\nWe helped 3 DTC brands in your space increase checkout conversion by 15-25% in the last quarter. Average uplift: $48K/mo in recovered revenue.\n\nWould a 15-min walkthrough of what we found be useful?\n\nBest,\nSarah'},
+  {id:'consulting-ceo',cat:'outbound',title:'Consulting — CEO outreach',desc:'Peer-level tone. Observation + question.',score:'90',
+    subject:'Noticed something about {{company}}',
+    body:'Hi {{firstName}},\n\nI was looking at {{company}} and noticed you recently expanded into the EU market.\n\nMost B2B companies we work with hit a wall at that stage: the playbook that worked domestically doesn\'t translate. Messaging, compliance, buyer behavior — all different.\n\nWe helped 4 companies navigate that exact transition this year.\n\nWorth comparing notes over a quick call?\n\nJohn'},
+  {id:'followup-1',cat:'followup',title:'Follow-up #1 — Gentle bump',desc:'3 days after initial email. Short and light.',score:'92',
+    subject:'Re: {{previousSubject}}',
+    body:'Hi {{firstName}},\n\nJust floating this back up in case it got buried.\n\nWould a 15-min call this week or next make sense?\n\nJohn'},
+  {id:'followup-2',cat:'followup',title:'Follow-up #2 — Add value',desc:'7 days later. Share something useful.',score:'88',
+    subject:'Thought of {{company}}',
+    body:'Hi {{firstName}},\n\nI came across this case study from a company similar to {{company}} that went from 0 to 20 meetings/mo in 6 weeks using cold email.\n\nThought it might be relevant given what you\'re building.\n\nHappy to share the specific playbook they used if you\'re curious.\n\nJohn'},
+  {id:'followup-breakup',cat:'followup',title:'Follow-up #3 — Breakup',desc:'Last email in the sequence. Direct and honest.',score:'93',
+    subject:'Should I close your file?',
+    body:'Hi {{firstName}},\n\nI\'ve reached out a couple of times and haven\'t heard back, which is totally fine.\n\nI don\'t want to keep emailing if the timing isn\'t right. If outbound isn\'t a priority for {{company}} right now, no worries at all.\n\nIf it ever becomes one, I\'m easy to find.\n\nBest,\nJohn'},
+  {id:'recruiting',cat:'hiring',title:'Recruiting — Candidate outreach',desc:'Reach passive candidates. Conversational tone.',score:'90',
+    subject:'{{firstName}}, saw your background',
+    body:'Hi {{firstName}},\n\nI came across your profile and your work at {{company}} stood out. Specifically your experience with scaling sales teams from 5 to 20+.\n\nWe\'re building the outbound team at Overloop and looking for someone who\'s done exactly that. The role is VP Sales, fully remote, with equity.\n\nWould you be open to a quick conversation? Even if the timing isn\'t right, I\'d value your perspective.\n\nJohn'},
+  {id:'hiring-talent',cat:'hiring',title:'Hiring — Pitch your company',desc:'Attract talent by leading with the mission.',score:'87',
+    subject:'Building something at Overloop',
+    body:'Hi {{firstName}},\n\nOverloop is an AI-powered outbound platform used by 2,000+ B2B companies. We\'re growing fast and looking for a senior engineer who\'s excited about building tools that replace entire SDR teams.\n\nSmall team (12 people), profitable, no BS. The tech stack is Node + React + Python.\n\nWould a 20-min chat make sense to see if there\'s a fit?\n\nJohn'},
+  {id:'fintech-compliance',cat:'outbound',title:'Fintech — Compliance angle',desc:'Lead with regulatory pain. Specific and credible.',score:'86',
+    subject:'{{company}} and MiCA compliance',
+    body:'Hi {{firstName}},\n\nWith MiCA enforcement starting in Q3, most crypto companies we talk to are scrambling to get compliance sorted. The ones that started 6 months ago are fine. The ones starting now are stressed.\n\nWe helped 8 fintech companies pass their compliance audits on the first try this year.\n\nWould it be useful to compare your current setup against what we typically see?\n\nBest,\nSarah'},
+  {id:'webinar-invite',cat:'event',title:'Webinar — Cold invite',desc:'Invite a prospect to a webinar. Value-first, no hard sell.',score:'89',
+    subject:'{{firstName}}, join us Thursday?',
+    body:'Hi {{firstName}},\n\nWe\'re running a live session this Thursday on how B2B companies are booking 20+ meetings/mo through cold email without hiring SDRs.\n\n3 operators will walk through their exact playbook: setup, copy, sequencing, what worked, what flopped.\n\n45 min, no slides, just screen-shares and real numbers.\n\nWant me to save you a spot?\n\nJohn'},
+  {id:'webinar-speaker',cat:'event',title:'Webinar — Speaker invite',desc:'Invite someone to speak at your event.',score:'91',
+    subject:'Speaking at our next session?',
+    body:'Hi {{firstName}},\n\nI\'ve been following your posts on outbound strategy. The one about sequencing cadences got 200+ comments for a reason.\n\nWe run a monthly webinar for 500+ B2B sales leaders. Our next topic: cold email in 2026. Your perspective would be the highlight.\n\n45 min, conversational format, we handle the promotion.\n\nWould you be open to it?\n\nJohn'},
+  {id:'conference-meeting',cat:'event',title:'Conference — Pre-event outreach',desc:'Book meetings before a conference.',score:'88',
+    subject:'At SaaStr next week?',
+    body:'Hi {{firstName}},\n\nI saw {{company}} is attending SaaStr next week. We\'ll be there too.\n\nWe work with B2B teams to automate outbound. Instead of the usual booth pitch, I\'d rather hear what\'s actually working for {{company}} right now on the pipeline side.\n\n15-min coffee meeting on Day 1 or 2?\n\nJohn'},
+  {id:'podcast-guest',cat:'event',title:'Podcast — Guest invite',desc:'Invite a prospect to your podcast. Flattering + low ask.',score:'92',
+    subject:'Podcast invite for {{firstName}}',
+    body:'Hi {{firstName}},\n\nI host a podcast called The Outbound Show. 2,000 B2B sales leaders tune in weekly.\n\nYour take on building {{company}}\'s go-to-market would make a great episode. We\'d cover how you scaled from founder-led sales to a repeatable process.\n\n30 min, remote, we edit and handle distribution.\n\nWould you be up for it?\n\nJohn'},
+  {id:'churned-customer',cat:'reengagement',title:'Re-engage — Churned customer',desc:'Win back someone who cancelled. No guilt, just curiosity.',score:'90',
+    subject:'How\'s {{company}} doing?',
+    body:'Hi {{firstName}},\n\nIt\'s been 6 months since {{company}} stopped using Overloop. No pitch, just genuinely curious: did you find something that worked better, or did outbound take a back seat?\n\nWe\'ve shipped a lot since then (AI sequences, LinkedIn automation, built-in warmup). Might be worth a fresh look.\n\nEither way, happy to hear what you ended up doing.\n\nJohn'},
+  {id:'lost-deal',cat:'reengagement',title:'Re-engage — Lost deal',desc:'Revisit a deal that went cold. Timing-based.',score:'89',
+    subject:'Circling back on this',
+    body:'Hi {{firstName}},\n\nWe spoke in Q1 about outbound for {{company}}. The timing wasn\'t right, which I totally understood.\n\nA few things changed on our side since then: pricing is simpler, onboarding takes 15 min instead of 2 hours, and we added LinkedIn automation.\n\nWorth another look, or still not the right time?\n\nJohn'},
+  {id:'inactive-lead',cat:'reengagement',title:'Re-engage — Inactive lead',desc:'Someone signed up but never activated.',score:'91',
+    subject:'Did we lose you?',
+    body:'Hi {{firstName}},\n\nYou signed up for Overloop 3 weeks ago but haven\'t sent your first campaign yet. No judgment. Most people get stuck on the infrastructure setup.\n\nIf that\'s the blocker, here\'s the 15-min version: buy 3 domains, create 6 mailboxes, connect to Overloop. We handle warmup automatically.\n\nWant me to walk you through it on a quick call?\n\nJohn'},
+  {id:'healthcare-outreach',cat:'outbound',title:'Healthcare — Decision maker',desc:'Reach hospital/clinic administrators. Formal but direct.',score:'85',
+    subject:'{{company}} patient acquisition',
+    body:'Hi {{firstName}},\n\nMost healthcare providers we work with rely on referrals and Google Ads for patient acquisition. Both are expensive and unpredictable.\n\nWe help clinics like {{company}} reach potential referring physicians and corporate wellness programs directly. Average: 12 new referral partnerships per quarter.\n\nWould a 15-min call to see if this fits your growth model make sense?\n\nBest,\nSarah'},
+  {id:'investor-update',cat:'outbound',title:'Fundraising — Warm intro ask',desc:'Ask a connection to intro you to an investor.',score:'93',
+    subject:'Quick favor',
+    body:'Hi {{firstName}},\n\nWe\'re raising our Series A. $2M ARR, 40% MoM growth, 3% churn.\n\nI noticed you\'re connected to {{investorName}} at {{fundName}}. They\'ve invested in similar companies and I think there\'s a fit.\n\nWould you be open to making a quick intro? Happy to send a short blurb you can forward.\n\nReally appreciate it.\n\nJohn'}
+];
+
+function loadTemplate(id){
+  const tpl=TEMPLATES.find(t=>t.id===id);if(!tpl)return;
+  $('subjectLine').value=tpl.subject;
+  $('emailBody').value=tpl.body;
+  versionHistory=[];
+  // Close template drawer if open
+  const d=$('tplDrawer');if(d.classList.contains('open')){d.classList.remove('open');$('tplToggle').textContent="Don't have an email yet? Pick a template →";}
+  // Run analysis immediately (no debounce)
+  analyze();
+  // Scroll to inbox preview (the wow moment)
+  setTimeout(()=>{
+    const inbox=$('inboxMock');
+    if(inbox)inbox.scrollIntoView({behavior:'smooth',block:'center'});
+  },100);
+}
+
+// ===== INBOX PREVIEW =====
+let inboxViewMode='desktop';
+const fakeEmails=[
+  {sender:'Alex from Stripe',subject:'Your invoice is ready',preview:'Hi there, your monthly invoice for March...',time:'10:34 AM',color:'#635BFF'},
+  {sender:'LinkedIn',subject:'5 new connection requests',preview:'Sarah Chen and 4 others want to connect...',time:'9:15 AM',color:'#0A66C2'},
+  null, // placeholder for YOUR email
+  {sender:'Notion',subject:'What\'s new in Notion',preview:'Introducing Notion AI blocks and calendar...',time:'Yesterday',color:'#000'},
+  {sender:'GitHub',subject:'[pull request] Fix auth bug',preview:'@devops merged pull request #482 into main...',time:'Yesterday',color:'#24292F'},
+];
+
+function renderInbox(){
+  const subject=$('subjectLine').value||'(no subject)';
+  const body=$('emailBody').value;
+  const preview=body.replace(/\{\{[^}]+\}\}/g,'...').substring(0,80);
+  const senderName='You';
+  const isMobile=inboxViewMode==='mobile';
+
+  let html='';
+  fakeEmails.forEach((e,i)=>{
+    if(e===null){
+      // YOUR email
+      if(isMobile){
+        html+=`<div class="inbox-row yours">
+          <div class="inbox-star">☆</div>
+          <div class="inbox-content" style="flex-direction:column;gap:2px">
+            <div style="display:flex;justify-content:space-between;width:100%"><div class="inbox-sender">${senderName}</div><div class="inbox-time">Just now</div></div>
+            <div class="inbox-subject" style="font-size:13px">${escHtml(subject)}</div>
+            <div class="inbox-preview" style="font-size:12px">${escHtml(preview)}</div>
+          </div>
+        </div>`;
+      }else{
+        html+=`<div class="inbox-row yours">
+          <div class="inbox-star">☆</div>
+          <div class="inbox-avatar" style="background:var(--primary)">Y</div>
+          <div class="inbox-content">
+            <div class="inbox-sender">${senderName}</div>
+            <div class="inbox-subject">${escHtml(subject)}</div>
+            <span class="inbox-sep">—</span>
+            <div class="inbox-preview">${escHtml(preview)}</div>
+          </div>
+          <div class="inbox-time">Just now</div>
+        </div>`;
+      }
+    }else{
+      if(isMobile){
+        html+=`<div class="inbox-row">
+          <div class="inbox-star">☆</div>
+          <div class="inbox-content" style="flex-direction:column;gap:2px">
+            <div style="display:flex;justify-content:space-between;width:100%"><div class="inbox-sender">${e.sender}</div><div class="inbox-time">${e.time}</div></div>
+            <div class="inbox-subject" style="font-size:13px">${e.subject}</div>
+            <div class="inbox-preview" style="font-size:12px">${e.preview}</div>
+          </div>
+        </div>`;
+      }else{
+        html+=`<div class="inbox-row">
+          <div class="inbox-star">☆</div>
+          <div class="inbox-avatar" style="background:${e.color}">${e.sender[0]}</div>
+          <div class="inbox-content">
+            <div class="inbox-sender">${e.sender}</div>
+            <div class="inbox-subject">${e.subject}</div>
+            <span class="inbox-sep">—</span>
+            <div class="inbox-preview">${e.preview}</div>
+          </div>
+          <div class="inbox-time">${e.time}</div>
+        </div>`;
+      }
+    }
+  });
+  $('inboxMock').innerHTML=html;
+  $('inboxMock').className='inbox-mock'+(isMobile?' inbox-mobile':'');
+}
+
+function setInboxView(mode,btn){
+  inboxViewMode=mode;
+  document.querySelectorAll('.inbox-toggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderInbox();
+}
+
+// Quick template chips
+const quickPicks=['saas-meeting','agency-whitelabel','followup-breakup','webinar-invite','recruiting','churned-customer','ecom-cro','investor-update'];
+$('quickTpl').innerHTML=quickPicks.map(id=>{
+  const t=TEMPLATES.find(x=>x.id===id);if(!t)return'';
+  return`<button class="qt-chip" onclick="loadTemplate('${t.id}')">${t.title} <span class="qt-score">${t.score}</span></button>`;
+}).join('');
+
+// ===== SPAM DATABASE with SAFE PHRASES =====
+const SAFE_PHRASES=['feel free','free to','free of charge','free tier','free plan','problem free','risk-free assessment','no problem','no worries','no doubt','no wonder','growth team','growth rate','growth stage','proven track record','results-driven','results oriented','boost your confidence','increase in','improve upon','success rate','success story','success metric'];
+
+const SPAM_WORDS={
+  critical:['guaranteed','free money','act now','limited time','urgent','congratulations','winner','click here','buy now','order now','no obligation','risk free','no cost','double your','earn extra','cash bonus','income from home','be your own boss','work from home','multi-level','mlm'],
+  warning:['discount','exclusive','special promotion','expire','deadline','hurry','don\'t miss','last chance','amazing','incredible','unbelievable','no catch','no strings','promise','100%','best price','lowest price','bargain','bonus','gift','prize','subscribe','sign up now','click below','visit our website'],
+  minor:['maximize','optimize','innovative','revolutionary','breakthrough','transform','powerful','leverage','cutting-edge','state-of-the-art','world-class','leading','premier','top-rated']
+};
+
+const REPLACEMENTS={'guaranteed':'we consistently deliver','free money':'additional revenue','act now':'would this week work','limited time':'this month','urgent':'time-sensitive','congratulations':'great news','winner':'selected','click here':'see the details','buy now':'get started','order now':'get started','no obligation':'no commitment','risk free':'low-risk','no cost':'no upfront cost','double your':'grow your','earn extra':'generate more','discount':'adjusted pricing','exclusive':'early access','hurry':'whenever works','don\'t miss':'worth checking out','last chance':'closing soon','amazing':'solid','incredible':'strong','unbelievable':'notable','no catch':'straightforward','promise':'our track record shows','100%':'consistently','subscribe':'join','sign up now':'interested?','click below':'see below','visit our website':'check our site','maximize':'improve','optimize':'refine','innovative':'different','revolutionary':'new','transform':'change','powerful':'effective','leverage':'use','cutting-edge':'modern','world-class':'high-quality','leading':'established'};
+
+function isSafePhrase(text,word,pos){
+  const ctx=text.substring(Math.max(0,pos-15),pos+word.length+15).toLowerCase();
+  return SAFE_PHRASES.some(sp=>ctx.includes(sp));
+}
+
+// ===== ANALYSIS =====
+let analyzeTimer;
+function liveAnalyze(){
+  clearTimeout(analyzeTimer);
+  renderInbox(); // inbox updates instantly, no debounce
+  analyzeTimer=setTimeout(analyze,200);
+}
+
+function analyze(){
+  const subject=$('subjectLine').value.trim();
+  const body=$('emailBody').value.trim();
+  if(!body&&!subject){$('results').classList.remove('show');$('liveScore').classList.remove('show');$('ctaBlock').style.display='none';return;}
+
+  const fullText=subject+' '+body;
+  const words=fullText.split(/\s+/).filter(w=>w.length>0);
+  const bodyWords=body.split(/\s+/).filter(w=>w.length>0).length;
+  $('wordCount').textContent=words.length;
+  $('charCount').textContent=fullText.length;
+
+  const dims=[];
+  const textLower=fullText.toLowerCase();
+
+  // 1. Spam words (context-aware)
+  let spamHits={critical:[],warning:[],minor:[]};
+  for(const[level,wlist]of Object.entries(SPAM_WORDS)){
+    wlist.forEach(w=>{
+      const wl=w.toLowerCase();
+      let idx=textLower.indexOf(wl);
+      while(idx!==-1){
+        if(!isSafePhrase(textLower,wl,idx)){
+          if(!spamHits[level].includes(w))spamHits[level].push(w);
+        }
+        idx=textLower.indexOf(wl,idx+1);
+      }
+    });
+  }
+  // Also check "free" standalone but not in safe phrases
+  if(textLower.match(/\bfree\b/)&&!SAFE_PHRASES.some(sp=>textLower.includes(sp)&&sp.includes('free'))){
+    if(!spamHits.warning.includes('free'))spamHits.warning.push('free');
+  }
+  const spamTotal=spamHits.critical.length*3+spamHits.warning.length*2+spamHits.minor.length;
+  const spamScore=Math.max(0,100-spamTotal*8);
+  let spamFix='';
+  const firstBad=[...spamHits.critical,...spamHits.warning][0];
+  if(firstBad)spamFix=`Replace "${firstBad}" with "${REPLACEMENTS[firstBad.toLowerCase()]||'something specific'}"`;
+  dims.push({name:'Spam words',icon:'🚫',score:spamScore,detail:spamTotal===0?'No spam triggers found. Clean.':`Found ${spamHits.critical.length} critical, ${spamHits.warning.length} warning, ${spamHits.minor.length} minor.`,fix:spamFix});
+
+  // 2. Length
+  let ls,ld,lf='';
+  if(bodyWords>=50&&bodyWords<=125){ls=100;ld=`${bodyWords} words. Sweet spot for cold email.`}
+  else if(bodyWords<50){ls=Math.max(40,100-(50-bodyWords)*2);ld=`${bodyWords} words. Too short.`;lf='Add a specific observation or concrete value prop.'}
+  else if(bodyWords<=200){ls=Math.max(50,100-(bodyWords-125));ld=`${bodyWords} words. Getting long.`;lf='Cut the intro. One pain point, one proof, one CTA.'}
+  else{ls=30;ld=`${bodyWords} words. Way too long.`;lf='Nobody reads 200+ words. Cut ruthlessly.'}
+  dims.push({name:'Length',icon:'📏',score:ls,detail:ld,fix:lf});
+
+  // 3. Links
+  const lc=(fullText.match(/https?:\/\/|www\./gi)||[]).length;
+  let lks=100,lkd='',lkf='';
+  if(lc===0){lkd='No links. Good.'}
+  else if(lc===1){lks=85;lkd='1 link. Acceptable.';lkf='Consider removing it and asking for a reply.'}
+  else if(lc===2){lks=60;lkd='2 links. Risky.';lkf='Keep max 1 link.'}
+  else{lks=25;lkd=`${lc} links. Looks like marketing.`;lkf='Cold emails need 0-1 links.'}
+  dims.push({name:'Links',icon:'🔗',score:lks,detail:lkd,fix:lkf});
+
+  // 4. Personalization
+  const pt=(fullText.match(/\{\{[^}]+\}\}/g)||[]);
+  const hn=textLower.includes('{{firstname}}')||textLower.includes('{{first_name}}')||textLower.includes('{{name}}');
+  const hc=textLower.includes('{{company}}')||textLower.includes('{{companyname}}');
+  let ps,pd,pf='';
+  if(hn&&hc&&pt.length>2){ps=100;pd=`${pt.length} tokens including name and company.`}
+  else if(hn&&hc){ps=80;pd='Name and company found.';pf='Add one more detail (recent post, job listing, mutual connection).'}
+  else if(hn||hc){ps=60;pd='Partial personalization.';pf=`Add {{${hn?'company':'firstName'}}}.`}
+  else{ps=30;pd='No personalization. Looks mass-emailed.';pf='Add {{firstName}} and {{company}}. Generic = 3x lower replies.'}
+  dims.push({name:'Personalization',icon:'👤',score:ps,detail:pd,fix:pf});
+
+  // 5. Reading level
+  const sents=fullText.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+  const sylls=words.reduce((a,w)=>a+countSyllables(w),0);
+  const grade=0.39*(words.length/sents)+11.8*(sylls/words.length)-15.59;
+  let rs,rd,rf='';
+  if(grade<=8){rs=100;rd=`Grade ${grade.toFixed(1)}. Clear and simple.`}
+  else if(grade<=12){rs=70;rd=`Grade ${grade.toFixed(1)}. A bit complex.`;rf='Shorter sentences. Simpler words.'}
+  else{rs=40;rd=`Grade ${grade.toFixed(1)}. Too complex.`;rf='Write like you talk. Grade 5-8 is the sweet spot.'}
+  dims.push({name:'Reading level',icon:'📖',score:rs,detail:rd,fix:rf});
+
+  // 6. CTA
+  const ctaPats=['worth a','15 min','quick call','hop on','chat','meeting','book','schedule','calendar','interested','open to','want to','let me know','what do you think','reply','respond'];
+  const hasCta=ctaPats.some(p=>textLower.includes(p));
+  const qm=(fullText.match(/\?/g)||[]).length;
+  let cs,cd,cf='';
+  if(hasCta&&qm>=1){cs=100;cd='Clear CTA as a question. 14% higher reply rate.'}
+  else if(hasCta){cs=80;cd='CTA found but not a question.';cf='End with a question: "Worth a 15-min call?"'}
+  else if(qm>=1){cs=60;cd='Question but no clear next step.';cf='Be specific: "Open to a 15-min call this week?"'}
+  else{cs=30;cd='No CTA. Reader doesn\'t know what to do.';cf='End with one question. "Open to a 15-min call?"'}
+  dims.push({name:'CTA',icon:'🎯',score:cs,detail:cd,fix:cf});
+
+  // 7. Subject line + preview text
+  const sw=subject.split(/\s+/).filter(w=>w).length;
+  const caps=(subject.match(/[A-Z]{3,}/g)||[]).length;
+  const excl=(subject.match(/[!?]{2,}/g)||[]).length;
+  const firstLine=(body.split('\n').find(l=>l.trim())||'').trim();
+  const previewWeak=firstLine.match(/^(hi|hey|hello|dear|good morning|good afternoon|I hope|I wanted|I'm reaching|just wanted|my name is)/i);
+  let ss=100,sd='',sf='';
+  if(!subject){ss=0;sd='No subject line.';sf='Add one. It decides if your email gets opened.'}
+  else{
+    if(sw>7){ss-=20;sf='Shorten it. Under 5 words = 23% higher opens.';}
+    if(caps>0){ss-=25;sf='Remove ALL CAPS. Screams spam.';}
+    if(excl>0)ss-=20;
+    if(previewWeak){ss-=10;sd+=` Preview text starts with "${firstLine.substring(0,30)}..." — generic opener wastes the preview space in Gmail.`;if(!sf)sf='Your first line shows as preview text in Gmail. Lead with something specific, not "Hi {{firstName}}".';}
+    if(!sd)sd=sw<=5&&!caps?`${sw} words, no caps. Good.`:`${sw} words.${caps?' ALL CAPS detected.':''}${sw>7?' Too long.':''}`;
+    ss=Math.max(0,ss);
+  }
+  dims.push({name:'Subject + preview',icon:'✉️',score:ss,detail:sd,fix:sf});
+
+  // Overall score
+  const weights=[25,15,15,15,10,10,10];
+  const totalScore=Math.round(dims.reduce((a,d,i)=>a+d.score*weights[i],0)/100);
+
+  // Save version
+  const lastVersion=versionHistory.length>0?versionHistory[versionHistory.length-1]:null;
+  if(lastVersion===null||Math.abs(totalScore-lastVersion)>=3){
+    versionHistory.push(totalScore);
+    if(versionHistory.length>5)versionHistory.shift();
+  }
+
+  // ===== RENDER =====
+  $('results').classList.add('show');
+  renderInbox();
+
+  // Live score pill
+  const sc=totalScore>=80?'var(--ok)':totalScore>=60?'var(--warn)':'var(--danger)';
+  $('liveScore').classList.add('show');
+  $('lsNum').textContent=totalScore;
+  $('lsNum').style.color=sc;
+  $('lsLabel').textContent=totalScore>=80?'Should land in inbox':totalScore>=60?'Decent — fix issues below':'High spam risk';
+  $('lsBar').style.width=totalScore+'%';
+  $('lsBar').style.background=sc;
+  // Score delta animation
+  if(prevScore!==null&&prevScore!==totalScore){
+    const d=totalScore-prevScore;
+    const del=$('lsDelta');
+    del.textContent=(d>0?'+':'')+d;
+    del.className='ls-delta show '+(d>0?'up':'down');
+    clearTimeout(deltaTimer);
+    deltaTimer=setTimeout(()=>{del.classList.remove('show')},1500);
+  }
+  prevScore=totalScore;
+
+  // Version chips
+  if(versionHistory.length>1){
+    $('versions').style.display='flex';
+    $('versions').innerHTML=versionHistory.map((v,i)=>{
+      const vc=v>=80?'var(--ok)':v>=60?'var(--warn)':'var(--danger)';
+      let delta='';
+      if(i>0){const d=v-versionHistory[i-1];delta=`<span class="ver-delta ${d>=0?'ver-up':'ver-down'}">${d>=0?'+':''}${d}</span>`;}
+      return(i>0?'<span class="ver-arrow">→</span>':'')+delta+`<span class="ver-chip" style="color:${vc}">V${i+1}: ${v}</span>`;
+    }).join('');
+  }else{$('versions').style.display='none'}
+
+  // Fix these first (top 3 failing dims)
+  const failing=dims.filter(d=>d.fix&&d.score<80).sort((a,b)=>a.score-b.score).slice(0,3);
+  if(failing.length>0){
+    $('fixFirst').className='fix-first show';
+    $('fixFirst').innerHTML=`<h3>Fix these first</h3>`+failing.map((d,i)=>
+      `<div class="ff-item"><div class="ff-num">${i+1}</div><div class="ff-text"><strong>${d.name}:</strong> ${d.fix}</div></div>`
+    ).join('');
+  }else{
+    $('fixFirst').className='fix-first show good';
+    $('fixFirst').innerHTML='<h3>All clear</h3><div class="ff-item"><div class="ff-text">No major issues found. This email should perform well.</div></div>';
+  }
+
+  // Action bar
+  const hasSpamWords=spamHits.critical.length+spamHits.warning.length>0;
+  $('actionBar').style.display=hasSpamWords?'flex':'none';
+
+  // Dims (sorted by score ascending, failing expanded, passing collapsed)
+  const sortedDims=[...dims].sort((a,b)=>a.score-b.score);
+  $('dims').innerHTML=sortedDims.map(d=>{
+    const c=d.score>=80?'var(--ok)':d.score>=60?'var(--warn)':'var(--danger)';
+    const isOpen=d.score<80;
+    return`<div class="dim${isOpen?' open':''}" onclick="this.classList.toggle('open')">
+      <div class="dim-header">
+        <div class="dim-name"><span style="font-size:14px">${d.icon}</span>${d.name}</div>
+        <div class="dim-right"><div class="dim-score" style="color:${c}">${d.score}/100</div><div class="dim-chevron">▼</div></div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill" style="width:${d.score}%;background:${c}"></div></div>
+      <div class="dim-body">
+        <div class="dim-detail">${d.detail}</div>
+        ${d.fix?`<div class="dim-fix"><strong>Fix:</strong> ${d.fix}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  // Annotated email (clickable spam words)
+  let ann=escHtml(body);
+  const allFlags=[...spamHits.critical.map(w=>({w,cls:'critical'})),...spamHits.warning.map(w=>({w,cls:'warning'})),...spamHits.minor.map(w=>({w,cls:'minor'}))];
+  allFlags.sort((a,b)=>b.w.length-a.w.length);
+  allFlags.forEach(f=>{
+    const re=new RegExp(`\\b(${f.w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})\\b`,'gi');
+    const repl=REPLACEMENTS[f.w.toLowerCase()]||'';
+    ann=ann.replace(re,`<mark class="${f.cls}" data-word="$1" data-replace="${escAttr(repl)}" data-level="${f.cls}" onclick="showFixPop(this,event)">$1</mark>`);
+  });
+  // Show annotation section only when there are flagged words
+  if(allFlags.length>0){
+    $('flaggedSection').style.display='block';
+    $('flaggedEmail').innerHTML=ann;
+  }else{
+    $('flaggedSection').style.display='none';
+  }
+
+  // CTA
+  $('ctaBlock').style.display='block';
+  $('ctaLine').textContent=`Your email scores ${totalScore}/100`;
+
+  // Close fix popover
+  $('fixPop').classList.remove('show');
+}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escAttr(s){return s.replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+
+function countSyllables(word){
+  word=word.toLowerCase().replace(/[^a-z]/g,'');
+  if(word.length<=3)return 1;
+  word=word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'');
+  word=word.replace(/^y/,'');
+  const m=word.match(/[aeiouy]{1,2}/g);
+  return m?m.length:1;
+}
+
+// ===== FIX POPOVER =====
+function showFixPop(el,event){
+  event.stopPropagation();
+  const pop=$('fixPop');
+  const word=el.dataset.word;
+  const repl=el.dataset.replace;
+  const level=el.dataset.level;
+  if(!repl){pop.classList.remove('show');return;}
+  $('fpTitle').textContent=`"${word}" → "${repl}"`;
+  $('fpWhy').textContent=level==='critical'?'This word appears in 30%+ of known spam emails.':level==='warning'?'Spam filters penalize this word moderately.':'Minor risk. Consider changing for better deliverability.';
+  currentFixTarget={el,word,repl};
+  // Position near the element (safe for mobile)
+  const rect=el.getBoundingClientRect();
+  const popW=Math.min(280,window.innerWidth-24);
+  pop.style.width=popW+'px';
+  pop.style.left=Math.max(12,Math.min(rect.left+window.scrollX,window.innerWidth-popW-12))+'px';
+  pop.style.top=(rect.bottom+window.scrollY+8)+'px';
+  pop.classList.add('show');
+}
+
+function applyFix(){
+  if(!currentFixTarget)return;
+  const{word,repl}=currentFixTarget;
+  // Replace in textarea
+  const body=$('emailBody');
+  const re=new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`,'gi');
+  body.value=body.value.replace(re,repl);
+  // Also in subject
+  const sub=$('subjectLine');
+  sub.value=sub.value.replace(re,repl);
+  $('fixPop').classList.remove('show');
+  currentFixTarget=null;
+  liveAnalyze();
+}
+
+// Close popover on click outside
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.fix-pop')&&!e.target.closest('mark'))$('fixPop').classList.remove('show');
+});
+
+// ===== FIX ALL =====
+function fixAll(){
+  const body=$('emailBody');
+  const sub=$('subjectLine');
+  let bv=body.value,sv=sub.value;
+  for(const[word,repl]of Object.entries(REPLACEMENTS)){
+    const re=new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`,'gi');
+    // Respect safe phrases: only replace if not inside a safe context
+    bv=bv.replace(re,(match,offset)=>isSafePhrase(bv.toLowerCase(),word,offset)?match:repl);
+    sv=sv.replace(re,(match,offset)=>isSafePhrase(sv.toLowerCase(),word,offset)?match:repl);
+  }
+  body.value=bv;
+  sub.value=sv;
+  liveAnalyze();
+}
+
+// ===== COPY =====
+function copyFixed(){
+  const sub=$('subjectLine').value;
+  const body=$('emailBody').value;
+  const text=`Subject: ${sub}\n\n${body}`;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.querySelector('.action-bar .btn-outline');
+    const orig=btn.textContent;
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent=orig,2000);
+  });
+}
+
+// ===== INIT: run AFTER everything is defined =====
+renderInbox();
+analyze();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cold Email Spam Checker","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's a good score?","acceptedAnswer":{"@type":"Answer","text":"80+ means primary inbox. 60-79 might work. Below 60, rewrite."}},{"@type":"Question","name":"Does 'feel free' trigger the 'free' warning?","acceptedAnswer":{"@type":"Answer","text":"No. We detect safe phrases and skip them. Context matters."}},{"@type":"Question","name":"Is this free?","acceptedAnswer":{"@type":"Answer","text":"Yes. No signup, no limits."}}]}</script>
+</body>
+</html>

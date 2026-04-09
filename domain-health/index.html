@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Domain Health Checker — SPF, DKIM, DMARC in One Click | Overloop</title>
+<meta name="description" content="Check your email domain's SPF, DKIM, DMARC, and MX records in one click. Get copy-paste DNS fixes. Free, no signup.">
+<link rel="canonical" href="https://tools.overloop.com/domain-health/">
+<link rel="alternate" hreflang="en" href="https://tools.overloop.com/domain-health/">
+<link rel="alternate" hreflang="fr" href="https://tools.overloop.com/fr/domain-health/">
+<link rel="alternate" hreflang="x-default" href="https://tools.overloop.com/domain-health/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7C3AED;--primary-dark:#6D28D9;--primary-light:#A78BFA;--primary-ultra-light:#EDE9FE;--primary-faint:#F5F3FF;--bg:#FAFAFA;--surface:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB;--border-light:#F3F4F6;--text:#1F2937;--text2:#6B7280;--muted:#9CA3AF;--ok:#10B981;--warn:#F59E0B;--danger:#EF4444;--mono:'JetBrains Mono',monospace;--sans:'Epilogue',-apple-system,BlinkMacSystemFont,sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);--shadow-glow:0 0 40px rgba(124,58,237,0.25);--r:0.75rem;--r-xl:1rem;--r-2xl:1.5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.page{padding:0 48px}}
+.nav{display:flex;align-items:center;gap:.75rem;padding:0 16px;height:60px;border-bottom:1px solid var(--border-light);margin-bottom:32px;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:100}
+@media(min-width:640px){.nav{padding:0 48px;height:72px;gap:2rem;margin-bottom:48px}}
+.nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:22px;width:auto}
+@media(min-width:640px){.nav-logo-img{height:28px}}
+.nav-links{display:none;gap:1.5rem;margin-right:auto}
+@media(min-width:640px){.nav-links{display:flex}}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.nav-links a:hover,.nav-link-active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:.75rem;margin-left:auto}
+.nav-login{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.5rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:.9375rem;font-weight:600;font-family:var(--sans);cursor:pointer;text-decoration:none;box-shadow:var(--shadow-md);transition:all 200ms ease}
+.btn:hover{background:var(--primary-dark);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.btn-nav{padding:.5rem 1.25rem;font-size:.8125rem}
+.btn-glow{background:linear-gradient(135deg,#7C3AED,#5B21B6);padding:1rem 2.5rem;border-radius:var(--r-xl);font-size:1rem;box-shadow:var(--shadow-glow)}
+.hero-wrap{background:linear-gradient(180deg,#FFFFFF 0%,#F5F3FF 50%,#FAFAFA 100%);margin:-32px -16px 32px;padding:32px 16px}
+@media(min-width:640px){.hero-wrap{margin:-48px -48px 48px;padding:48px}}
+.hero{text-align:center;max-width:720px;margin:0 auto}
+.hero h1{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.hero p{font-size:16px;color:var(--text2)}
+@media(min-width:640px){.hero p{font-size:18px}}
+.tool{max-width:720px;margin:0 auto 32px}
+@media(min-width:640px){.tool{margin-bottom:48px}}
+.input-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.25rem;margin-bottom:24px;box-shadow:var(--shadow-xl)}
+@media(min-width:640px){.input-card{border-radius:var(--r-2xl);padding:2rem}}
+.input-row{display:flex;gap:8px}
+.domain-input{flex:1;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);font-size:15px;font-family:var(--sans);background:var(--white);color:var(--text);transition:all 150ms}
+.domain-input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+
+/* Results */
+.results{display:none}
+.results.show{display:block}
+.score-bar{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:16px;background:var(--white);border:1px solid var(--border-light);border-radius:12px}
+@media(min-width:640px){.score-bar{padding:20px;margin-bottom:32px}}
+.score-num{font-family:var(--mono);font-size:36px;font-weight:700;line-height:1}
+@media(min-width:640px){.score-num{font-size:48px}}
+.score-info{flex:1}
+.score-label{font-size:14px;font-weight:600}
+.score-sub{font-size:12px;color:var(--text2)}
+.score-meter{height:6px;border-radius:3px;background:var(--surface);margin-top:8px;overflow:hidden}
+.score-meter-fill{height:100%;border-radius:3px;transition:width 600ms}
+
+/* Check items */
+.checks{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+@media(min-width:640px){.checks{gap:10px;margin-bottom:32px}}
+.check{background:var(--white);border:1px solid var(--border-light);border-radius:10px;overflow:hidden}
+.check-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+@media(min-width:640px){.check-header{padding:16px 20px}}
+.check-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.check-pass .check-icon{background:rgba(16,185,129,0.1);color:var(--ok)}
+.check-fail .check-icon{background:rgba(239,68,68,0.1);color:var(--danger)}
+.check-warn .check-icon{background:rgba(245,158,11,0.1);color:var(--warn)}
+.check-loading .check-icon{background:var(--surface);color:var(--muted)}
+.check-name{font-weight:600;font-size:14px;flex:1}
+.check-status{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+.check-pass .check-status{background:rgba(16,185,129,0.1);color:var(--ok)}
+.check-fail .check-status{background:rgba(239,68,68,0.1);color:var(--danger)}
+.check-warn .check-status{background:rgba(245,158,11,0.1);color:var(--warn)}
+.check-chevron{color:var(--muted);font-size:12px;transition:transform 200ms}
+.check.open .check-chevron{transform:rotate(180deg)}
+.check-body{display:none;padding:0 16px 14px;border-top:1px solid var(--border-light)}
+@media(min-width:640px){.check-body{padding:0 20px 16px}}
+.check.open .check-body{display:block}
+.check-detail{font-size:13px;color:var(--text2);line-height:1.6;margin-top:12px}
+.check-record{font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--border-light);border-radius:6px;padding:10px 12px;margin-top:10px;word-break:break-all;line-height:1.5;position:relative}
+.check-record-copy{position:absolute;top:6px;right:6px;padding:3px 8px;border-radius:4px;background:var(--white);border:1px solid var(--border);font-size:10px;font-weight:600;font-family:var(--sans);cursor:pointer;color:var(--text2);transition:all 150ms}
+.check-record-copy:hover{color:var(--primary);border-color:var(--primary)}
+.check-fix{margin-top:10px;padding:10px 12px;background:var(--primary-faint);border-left:3px solid var(--primary);border-radius:0 6px 6px 0;font-size:13px;color:var(--text2);line-height:1.5}
+.check-fix strong{color:var(--text);font-weight:700}
+
+/* CTA */
+.cta-soft{text-align:center;padding:1.5rem;background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r-xl);margin:32px 0}
+@media(min-width:640px){.cta-soft{padding:2rem;border-radius:var(--r-2xl);margin:40px 0}}
+.cta-soft h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.cta-soft p{color:var(--text2);margin-bottom:16px;font-size:14px}
+.cta-hard{text-align:center;padding:2.5rem 1.5rem;background:#1F2937;border-radius:var(--r-xl);color:#fff;margin:32px auto;max-width:720px}
+@media(min-width:640px){.cta-hard{padding:3rem 2rem;border-radius:var(--r-2xl);margin:48px auto}}
+.cta-hard h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.cta-hard h3 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.cta-hard p{opacity:.8;margin-bottom:18px;font-size:14px}
+.section{margin:0 auto;padding:3rem 0;max-width:720px}
+@media(min-width:640px){.section{padding:4rem 0}}
+.section h2{font-size:20px;font-weight:700;margin-bottom:1.5rem}
+.section h2 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.steps{display:grid;gap:20px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step{text-align:center;padding:16px 12px}
+.step-n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-ultra-light);color:var(--primary);font-weight:700;font-size:15px;margin-bottom:10px}
+.step h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step p{font-size:13px;color:var(--text2)}
+.section.section-lavender{background:#F5F3FF;max-width:none;padding-left:16px;padding-right:16px;margin-left:-16px;margin-right:-16px}
+@media(min-width:640px){.section.section-lavender{margin-left:-48px;margin-right:-48px;padding-left:48px;padding-right:48px}}
+.section-lavender .section-inner{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;cursor:pointer;font-size:14px;font-weight:600;background:none;border:none;width:100%;text-align:left;color:var(--text);font-family:var(--sans)}
+@media(min-width:640px){.faq-q{font-size:15px;padding:1.25rem 0}}
+.faq-q::after{content:'+';font-size:18px;color:var(--muted);margin-left:12px}
+.faq-q.open::after{content:'\2212'}
+.faq-a{padding:0 0 1rem;font-size:13px;color:var(--text2);line-height:1.7;display:none}
+.faq-a.open{display:block}
+.related{display:grid;gap:10px}
+@media(min-width:640px){.related{grid-template-columns:repeat(3,1fr);gap:14px}}
+.related a{padding:1rem;border:1px solid var(--border-light);border-radius:var(--r-xl);text-decoration:none;color:var(--text);background:var(--white);transition:all 300ms ease}
+.related a:hover{border-color:var(--primary-light);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.related h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.related p{font-size:12px;color:var(--text2)}
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:4rem;text-align:center;font-size:13px;color:var(--muted)}
+.footer a{color:var(--primary);text-decoration:none}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://overloop.com" class="nav-logo"><img src="https://cdn.prod.website-files.com/6836b1fcfa0b25a3fed39db6/69d4cb02974de95cb4df5bd0_Logotype%20-%20Black.png" alt="Overloop" class="nav-logo-img"></a>
+  <div class="nav-links"><a href="https://overloop.com/features">Features</a><a href="https://overloop.com/pricing">Pricing</a><a href="/" class="nav-link-active">Free tools</a></div>
+  <div class="nav-right"><a href="https://app.overloop.ai/session/login" class="nav-login">Login</a><a href="https://app.overloop.ai/session/signup" class="btn btn-nav">Sign up free</a></div>
+</nav>
+<div class="page">
+<div class="hero-wrap"><div class="hero">
+  <h1>Is your domain ready to <em>send?</em></h1>
+  <p>SPF, DKIM, DMARC, MX records. One click. If something's wrong, we show you exactly what to fix.</p>
+</div></div>
+
+<div class="tool">
+  <div class="input-card">
+    <div style="font-size:16px;font-weight:700;margin-bottom:12px">Enter your sending domain</div>
+    <div class="input-row">
+      <input type="text" class="domain-input" id="domainInput" placeholder="yourdomain.com" onkeydown="if(event.key==='Enter')runCheck()">
+      <button class="btn" onclick="runCheck()">Check</button>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:6px">Use your sending domain, not your main domain. Example: getacme.com, not acme.com.</div>
+  </div>
+
+  <div class="results" id="results">
+    <div class="score-bar" id="scoreBar"></div>
+    <div class="checks" id="checks"></div>
+    <div class="cta-soft" id="ctaSoft" style="display:none">
+      <h3 id="ctaLine">Domain health: 80/100</h3>
+      <p>Fix the issues above, then start sending.</p>
+      <a href="https://app.overloop.ai/session/signup" class="btn" style="width:100%;max-width:320px">Send with Overloop</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>What we check</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>SPF + DKIM + DMARC</h3><p>The three authentication records that tell email providers you're legit.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>MX records</h3><p>Confirm your domain can receive replies. No MX = emails bounce back.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Record quality</h3><p>Not just pass/fail. We check if your records are correctly configured and flag common mistakes.</p></div>
+  </div>
+</div>
+
+<div class="section section-lavender"><div class="section-inner">
+  <h2>Questions we get <em>every day</em></h2>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What is SPF?</button><div class="faq-a">SPF (Sender Policy Framework) is a DNS record that lists which servers are allowed to send email from your domain. Without it, anyone can spoof your domain. Gmail and Outlook check SPF on every incoming email.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What is DKIM?</button><div class="faq-a">DKIM (DomainKeys Identified Mail) adds a cryptographic signature to your emails. The receiving server checks this signature against a public key in your DNS. It proves the email wasn't altered in transit and actually came from your domain.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What is DMARC?</button><div class="faq-a">DMARC ties SPF and DKIM together and tells email providers what to do if authentication fails (nothing, quarantine, or reject). Without DMARC, providers make their own decision. With DMARC, you control it. Start with p=none, move to p=quarantine after 2 weeks.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Why does this matter for cold email?</button><div class="faq-a">Without proper authentication, your cold emails land in spam. Period. Gmail checks SPF, DKIM, and DMARC on every email. If any one fails, your deliverability drops significantly. This is the #1 technical reason cold email campaigns fail.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Is this free?</button><div class="faq-a">Yes. Check as many domains as you want. No signup, no limits.</div></div>
+</div></div>
+
+<div class="section">
+  <h2>More free tools</h2>
+  <div class="related">
+    <a href="/roi-calculator/"><h4>ROI calculator</h4><p>Will cold email work for you? See the numbers.</p></a>
+    <a href="/infrastructure-calculator/"><h4>Setup calculator</h4><p>How many domains do you actually need?</p></a>
+    <a href="/spam-checker/"><h4>Spam checker</h4><p>Score your email on 7 dimensions before sending.</p></a>
+  </div>
+</div>
+
+<div class="cta-hard">
+  <h3>Domain healthy? Time to <em>send.</em></h3>
+  <p>Connect your mailboxes to Overloop. First campaign live in 15 minutes.</p>
+  <a href="https://app.overloop.ai/session/signup" class="btn-glow">Try Overloop free</a>
+</div>
+<footer class="footer"><a href="https://overloop.com">Overloop</a> — AI-powered outbound sales platform</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+async function dnsLookup(domain,type){
+  try{
+    const r=await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${type}`);
+    const d=await r.json();
+    return d.Answer||[];
+  }catch(e){return[];}
+}
+
+async function runCheck(){
+  const domain=$('domainInput').value.trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'');
+  if(!domain||!domain.includes('.'))return;
+  $('domainInput').value=domain;
+
+  $('results').classList.add('show');
+  $('checks').innerHTML='<div style="text-align:center;padding:32px;color:var(--muted)">Checking ' + domain + '...</div>';
+  $('scoreBar').innerHTML='';
+  $('ctaSoft').style.display='none';
+
+  // Run all DNS lookups in parallel
+  const [spfRecords, dkimRecords, dmarcRecords, mxRecords] = await Promise.all([
+    dnsLookup(domain,'TXT'),
+    dnsLookup('google._domainkey.'+domain,'TXT'), // Google Workspace default selector
+    dnsLookup('_dmarc.'+domain,'TXT'),
+    dnsLookup(domain,'MX')
+  ]);
+
+  // Also try default DKIM selector
+  let dkimAll = dkimRecords;
+  if(dkimAll.length===0){
+    dkimAll = await dnsLookup('default._domainkey.'+domain,'TXT');
+  }
+  // Try selector1 (Microsoft)
+  if(dkimAll.length===0){
+    dkimAll = await dnsLookup('selector1._domainkey.'+domain,'TXT');
+  }
+
+  const checks=[];
+
+  // 1. SPF
+  const spfTxt=spfRecords.filter(r=>r.data&&r.data.toLowerCase().includes('v=spf1'));
+  if(spfTxt.length>0){
+    const record=spfTxt[0].data.replace(/"/g,'');
+    const lookups=(record.match(/include:|a:|mx:|redirect=/g)||[]).length;
+    const hasAll=record.includes('-all')||record.includes('~all');
+    if(lookups>10){
+      checks.push({name:'SPF',status:'warn',icon:'⚠️',statusText:'WARNING',record,
+        detail:`SPF record found but has ${lookups} DNS lookups. The limit is 10. Emails may fail SPF checks intermittently.`,
+        fix:`Remove unused include: mechanisms. You have ${lookups} lookups, max is 10. Check if all included services are still in use.`});
+    }else if(!hasAll){
+      checks.push({name:'SPF',status:'warn',icon:'⚠️',statusText:'WEAK',record,
+        detail:'SPF record found but doesn\'t end with -all or ~all. This means anyone can send email as your domain.',
+        fix:'Add ~all (softfail) or -all (hardfail) at the end of your SPF record. ~all is recommended for cold email.'});
+    }else{
+      checks.push({name:'SPF',status:'pass',icon:'✓',statusText:'PASS',record,
+        detail:`SPF record is valid. ${lookups} DNS lookups (limit: 10). Ends with ${record.includes('-all')?'-all (strict)':'~all (soft)'}.`,fix:''});
+    }
+  }else{
+    checks.push({name:'SPF',status:'fail',icon:'✗',statusText:'MISSING',record:'',
+      detail:'No SPF record found. Email providers can\'t verify that emails from this domain are legitimate.',
+      fix:'Add this TXT record to your DNS:\nv=spf1 include:_spf.google.com ~all\n\nReplace _spf.google.com with your email provider\'s SPF include.'});
+  }
+
+  // 2. DKIM
+  if(dkimAll.length>0){
+    const record=dkimAll[0].data.replace(/"/g,'');
+    checks.push({name:'DKIM',status:'pass',icon:'✓',statusText:'PASS',record:record.substring(0,120)+'...',
+      detail:'DKIM record found. Emails from this domain are cryptographically signed.',fix:''});
+  }else{
+    checks.push({name:'DKIM',status:'fail',icon:'✗',statusText:'NOT FOUND',record:'',
+      detail:'No DKIM record found (checked google, default, and selector1 selectors). Emails aren\'t signed, which hurts deliverability.',
+      fix:'DKIM is set up through your email provider:\n• Google Workspace: Admin → Apps → Google Workspace → Gmail → Authenticate email\n• Microsoft 365: Admin → Settings → Domains → select domain → DNS records\n\nYour provider generates the DKIM key. You add it as a CNAME or TXT record.'});
+  }
+
+  // 3. DMARC
+  const dmarcTxt=dmarcRecords.filter(r=>r.data&&r.data.toLowerCase().includes('v=dmarc1'));
+  if(dmarcTxt.length>0){
+    const record=dmarcTxt[0].data.replace(/"/g,'');
+    const policy=record.match(/p=(none|quarantine|reject)/i);
+    const policyVal=policy?policy[1].toLowerCase():'none';
+    if(policyVal==='none'){
+      checks.push({name:'DMARC',status:'warn',icon:'⚠️',statusText:'WEAK',record,
+        detail:'DMARC record found but policy is p=none (monitor only). Spoofed emails won\'t be blocked.',
+        fix:'Start with p=none for 2 weeks to monitor. Then upgrade to p=quarantine:\nv=dmarc1; p=quarantine; rua=mailto:dmarc@'+domain});
+    }else{
+      checks.push({name:'DMARC',status:'pass',icon:'✓',statusText:'PASS',record,
+        detail:`DMARC policy is p=${policyVal}. ${policyVal==='reject'?'Strictest setting. Spoofed emails are rejected.':'Spoofed emails are sent to spam.'}`,fix:''});
+    }
+  }else{
+    checks.push({name:'DMARC',status:'fail',icon:'✗',statusText:'MISSING',record:'',
+      detail:'No DMARC record found. Email providers don\'t know what to do when authentication fails.',
+      fix:'Add this TXT record to _dmarc.'+domain+':\nv=dmarc1; p=none; rua=mailto:dmarc@'+domain+'\n\nStart with p=none. Move to p=quarantine after 2 weeks of monitoring.'});
+  }
+
+  // 4. MX
+  if(mxRecords.length>0){
+    const mxList=mxRecords.map(r=>r.data).join(', ');
+    checks.push({name:'MX Records',status:'pass',icon:'✓',statusText:'PASS',record:mxList,
+      detail:`${mxRecords.length} MX record${mxRecords.length>1?'s':''} found. This domain can receive replies.`,fix:''});
+  }else{
+    checks.push({name:'MX Records',status:'fail',icon:'✗',statusText:'MISSING',record:'',
+      detail:'No MX records found. This domain cannot receive email. Replies to your cold emails will bounce.',
+      fix:'MX records are set up when you connect your email provider (Google Workspace, Microsoft 365). If you just bought this domain, you need to set up email hosting first.'});
+  }
+
+  // Score
+  const passCount=checks.filter(c=>c.status==='pass').length;
+  const warnCount=checks.filter(c=>c.status==='warn').length;
+  const failCount=checks.filter(c=>c.status==='fail').length;
+  const score=Math.round((passCount*25)+(warnCount*12.5));
+  const scoreColor=score>=75?'var(--ok)':score>=50?'var(--warn)':'var(--danger)';
+  const scoreLabel=score>=75?'Looking good. Your domain should deliver well.':score>=50?'Some issues. Fix the warnings below.':'Significant problems. Fix these before sending.';
+
+  $('scoreBar').innerHTML=`
+    <div class="score-num" style="color:${scoreColor}">${score}</div>
+    <div class="score-info">
+      <div class="score-label" style="color:${scoreColor}">${scoreLabel}</div>
+      <div class="score-sub">${passCount} passed · ${warnCount} warning${warnCount!==1?'s':''} · ${failCount} failed</div>
+      <div class="score-meter"><div class="score-meter-fill" style="width:${score}%;background:${scoreColor}"></div></div>
+    </div>
+  `;
+
+  // Render checks (fails first, then warns, then passes)
+  const sorted=[...checks].sort((a,b)=>{const o={fail:0,warn:1,pass:2};return o[a.status]-o[b.status];});
+  $('checks').innerHTML=sorted.map(c=>{
+    const isOpen=c.status!=='pass';
+    return`<div class="check check-${c.status}${isOpen?' open':''}" onclick="this.classList.toggle('open')">
+      <div class="check-header">
+        <div class="check-icon">${c.icon}</div>
+        <div class="check-name">${c.name}</div>
+        <div class="check-status">${c.statusText}</div>
+        <div class="check-chevron">▼</div>
+      </div>
+      <div class="check-body">
+        <div class="check-detail">${c.detail}</div>
+        ${c.record?`<div class="check-record">${c.record}<button class="check-record-copy" onclick="event.stopPropagation();navigator.clipboard.writeText('${c.record.replace(/'/g,"\\'")}');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)">Copy</button></div>`:''}
+        ${c.fix?`<div class="check-fix"><strong>How to fix:</strong> ${c.fix.replace(/\n/g,'<br>')}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  $('ctaSoft').style.display='block';
+  $('ctaLine').textContent=`Domain health: ${score}/100`;
+  $('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Domain Health Checker","url":"https://tools.overloop.com/domain-health/","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</body>
+</html>

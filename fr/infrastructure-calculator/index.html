@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur d'infrastructure cold email gratuit — Planifiez votre setup outbound | Overloop</title>
+<meta name="description" content="Indiquez combien de rendez-vous vous voulez. On calcule exactement les domaines, mailboxes et le budget necessaires. Calendrier de warmup et checklist inclus. Gratuit.">
+<link rel="canonical" href="https://tools.overloop.com/fr/infrastructure-calculator/">
+<link rel="alternate" hreflang="en" href="https://tools.overloop.com/infrastructure-calculator/">
+<link rel="alternate" hreflang="fr" href="https://tools.overloop.com/fr/infrastructure-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://tools.overloop.com/infrastructure-calculator/">
+<meta property="og:title" content="Calculateur d'infrastructure cold email | Overloop">
+<meta property="og:description" content="Entrez votre objectif de rendez-vous. Obtenez votre plan d'infrastructure outbound complet.">
+<meta property="og:url" content="https://tools.overloop.com/fr/infrastructure-calculator/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7C3AED;--primary-dark:#6D28D9;--primary-darker:#5B21B6;--primary-light:#A78BFA;--primary-ultra-light:#EDE9FE;--primary-faint:#F5F3FF;--bg:#FAFAFA;--surface:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB;--border-light:#F3F4F6;--text:#1F2937;--text2:#6B7280;--muted:#9CA3AF;--ok:#10B981;--warn:#F59E0B;--danger:#EF4444;--mono:'JetBrains Mono',monospace;--sans:'Epilogue',-apple-system,BlinkMacSystemFont,sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);--shadow-glow:0 0 40px rgba(124,58,237,0.25);--r:0.75rem;--r-xl:1rem;--r-2xl:1.5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.page{padding:0 48px}}
+.nav{display:flex;align-items:center;gap:0.75rem;padding:0 16px;height:60px;border-bottom:1px solid var(--border-light);margin-bottom:32px;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:100}
+@media(min-width:640px){.nav{padding:0 48px;height:72px;gap:2rem;margin-bottom:48px}}
+.nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:22px;width:auto}
+@media(min-width:640px){.nav-logo-img{height:28px}}
+.nav-links{display:none;gap:1.5rem;margin-right:auto}
+@media(min-width:640px){.nav-links{display:flex}}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.nav-links a:hover,.nav-link-active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:.75rem;margin-left:auto}
+.nav-login{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.5rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:.9375rem;font-weight:600;font-family:var(--sans);cursor:pointer;text-decoration:none;box-shadow:var(--shadow-md);transition:all 200ms ease}
+.btn:hover{background:var(--primary-dark);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.btn-nav{padding:.5rem 1.25rem;font-size:.8125rem}
+.btn-glow{background:linear-gradient(135deg,#7C3AED,#5B21B6);padding:1rem 2.5rem;border-radius:var(--r-xl);font-size:1rem;box-shadow:var(--shadow-glow)}
+.btn-glow:hover{box-shadow:0 0 60px rgba(124,58,237,0.4);transform:translateY(-2px)}
+.hero-wrap{background:linear-gradient(180deg,#FFFFFF 0%,#F5F3FF 50%,#FAFAFA 100%);margin:-32px -16px 32px;padding:32px 16px}
+@media(min-width:640px){.hero-wrap{margin:-48px -48px 48px;padding:48px}}
+.hero{text-align:center;max-width:720px;margin:0 auto}
+.hero h1{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.hero p{font-size:16px;color:var(--text2)}
+@media(min-width:640px){.hero p{font-size:18px}}
+.tool{max-width:720px;margin:0 auto 32px}
+@media(min-width:640px){.tool{margin-bottom:48px}}
+
+/* Input card */
+.input-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.25rem;margin-bottom:24px;box-shadow:var(--shadow-xl)}
+@media(min-width:640px){.input-card{border-radius:var(--r-2xl);padding:2rem;margin-bottom:32px}}
+.input-card h2{font-size:18px;font-weight:700;margin-bottom:4px}
+@media(min-width:640px){.input-card h2{font-size:20px}}
+.input-card>p{font-size:13px;color:var(--text2);margin-bottom:20px}
+.ig{margin-bottom:20px}
+.ig:last-child{margin-bottom:0}
+.ig-label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:600;margin-bottom:6px}
+.ig-val{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--primary)}
+.ig-hint{font-size:11px;color:var(--muted);margin-top:4px}
+.ig-hint strong{color:var(--text);font-weight:600}
+input[type=range]{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,#EDE9FE,#A78BFA);outline:none;margin-top:4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #7C3AED;cursor:pointer;box-shadow:0 2px 8px rgba(124,58,237,0.3)}
+.text-input{width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);font-size:.9375rem;font-family:var(--sans);background:var(--white);color:var(--text);transition:all 150ms ease}
+.text-input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+
+/* Reverse calc explanation */
+.reverse-box{background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r);padding:1rem;margin-bottom:20px;font-size:13px;line-height:1.7}
+.reverse-box .rv-line{display:flex;justify-content:space-between;padding:3px 0}
+.reverse-box .rv-label{color:var(--text2)}
+.reverse-box .rv-val{font-family:var(--mono);font-weight:700;color:var(--primary)}
+.reverse-box .rv-result{border-top:1px solid var(--primary-ultra-light);margin-top:6px;padding-top:8px;font-weight:600;color:var(--text)}
+
+/* Section headers */
+.sh{font-size:18px;font-weight:700;margin-bottom:12px}
+@media(min-width:640px){.sh{font-size:20px;margin-bottom:16px}}
+
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:24px}
+@media(min-width:640px){.metrics{grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px}}
+.m-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r);padding:.875rem;text-align:center}
+@media(min-width:640px){.m-card{padding:1.25rem;border-radius:var(--r-xl)}}
+.m-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.m-val{font-family:var(--mono);font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--primary)}
+.m-sub{font-size:11px;color:var(--text2);margin-top:2px}
+
+/* Infra diagram */
+.diagram{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:1rem;margin-bottom:24px;overflow-x:auto}
+@media(min-width:640px){.diagram{padding:1.5rem;border-radius:var(--r-2xl);margin-bottom:32px}}
+.diagram-inner{min-width:300px}
+.d-row{display:flex;align-items:stretch;gap:8px;margin-bottom:8px}
+@media(min-width:640px){.d-row{gap:12px;margin-bottom:12px}}
+.d-domain{background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r);padding:10px;flex:1;min-width:0}
+.d-domain-name{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--primary);margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.d-mailboxes{display:flex;gap:4px}
+.d-mb{flex:1;background:var(--bg);border:1px solid var(--border-light);border-radius:4px;padding:6px;text-align:center;font-size:10px}
+.d-mb-icon{font-size:14px;margin-bottom:2px}
+.d-mb-cap{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text)}
+.d-mb-label{font-size:8px;color:var(--muted)}
+.d-total{text-align:center;padding:8px;background:var(--bg);border-radius:var(--r);font-size:12px;color:var(--text2);margin-top:8px}
+.d-total strong{color:var(--primary);font-family:var(--mono)}
+
+/* Warmup card */
+.warmup-card{margin-bottom:24px}
+@media(min-width:640px){.warmup-card{margin-bottom:36px}}
+.wu-rules{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.wu-rule{display:flex;align-items:center;gap:10px;font-size:14px}
+.wu-rule strong{color:var(--primary)}
+.wu-rule-num{width:24px;height:24px;border-radius:50%;background:var(--primary-ultra-light);color:var(--primary);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wu-compare{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.wu-compare{grid-template-columns:1fr 1fr;gap:16px}}
+.wu-path{border-radius:var(--r);padding:1rem;border:1px solid var(--border-light)}
+.wu-good{background:rgba(16,185,129,0.03);border-color:rgba(16,185,129,0.15)}
+.wu-bad{background:rgba(239,68,68,0.03);border-color:rgba(239,68,68,0.15)}
+.wu-path-label{font-size:12px;font-weight:600;margin-bottom:10px}
+.wu-good .wu-path-label{color:var(--ok)}
+.wu-bad .wu-path-label{color:var(--danger)}
+.wu-path-bars{display:flex;align-items:flex-end;gap:3px;height:80px;margin-bottom:10px}
+.wu-bar-item{flex:1;border-radius:3px 3px 0 0;min-height:2px;position:relative}
+.wu-bar-tip{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:8px;font-weight:700;white-space:nowrap}
+@media(min-width:640px){.wu-bar-tip{font-size:9px;top:-18px}}
+.wu-path-result{font-family:var(--mono);font-size:12px;font-weight:700;text-align:center;padding:6px;border-radius:4px}
+.wu-result-ok{background:rgba(16,185,129,0.1);color:var(--ok)}
+.wu-result-danger{background:rgba(239,68,68,0.1);color:var(--danger)}
+
+/* Domain suggestions */
+.dom-section{margin-bottom:24px}
+@media(min-width:640px){.dom-section{margin-bottom:32px}}
+.dom-grid{display:grid;grid-template-columns:1fr;gap:6px}
+@media(min-width:640px){.dom-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
+.dom-chip{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--bg);border:1px solid var(--border-light);border-radius:var(--r);transition:all 150ms ease}
+.dom-chip:hover{border-color:var(--primary-light)}
+.dom-name{font-family:var(--mono);font-size:13px;font-weight:600}
+.dom-actions{display:flex;gap:6px;align-items:center}
+.dom-link{font-size:11px;color:var(--primary);text-decoration:none;font-weight:500;padding:4px 8px;background:var(--primary-faint);border-radius:4px}
+.dom-link:hover{background:var(--primary-ultra-light)}
+
+/* Checklist */
+.checklist-section{margin-bottom:24px}
+@media(min-width:640px){.checklist-section{margin-bottom:36px}}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--border-light);cursor:pointer;-webkit-user-select:none;user-select:none}
+.cl-item:last-child{border-bottom:none}
+.cl-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 150ms ease;margin-top:1px}
+.cl-item.done .cl-check{background:var(--ok);border-color:var(--ok)}
+.cl-item.done .cl-check::after{content:'✓';color:#fff;font-size:13px;font-weight:700}
+.cl-item.done .cl-text{text-decoration:line-through;color:var(--muted)}
+.cl-text{flex:1}
+.cl-title{font-weight:600;font-size:14px}
+.cl-desc{font-size:12px;color:var(--text2);margin-top:2px}
+.cl-progress{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.cl-bar-bg{flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden}
+.cl-bar{height:100%;background:linear-gradient(90deg,#7C3AED,#5B21B6);border-radius:4px;transition:width 300ms ease}
+.cl-pct{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--primary)}
+
+/* Warning */
+.warn-box{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.15);border-radius:var(--r);padding:1rem;margin-bottom:24px;font-size:13px}
+.warn-box strong{color:var(--danger)}
+
+/* Shopping list */
+.shop-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border-light)}
+.shop-item:last-child{border-bottom:none}
+.shop-what{font-weight:600;font-size:14px}
+.shop-detail{font-size:12px;color:var(--text2)}
+.shop-cost{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--primary);text-align:right}
+.shop-total{display:flex;justify-content:space-between;padding:16px 0;border-top:2px solid var(--border);margin-top:4px;font-size:16px;font-weight:700}
+.shop-total .shop-cost{font-size:18px}
+
+/* CTA */
+.cta-soft{text-align:center;padding:1.5rem;background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r-xl);margin:32px 0}
+@media(min-width:640px){.cta-soft{padding:2rem;border-radius:var(--r-2xl);margin:40px 0}}
+.cta-soft h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.cta-soft p{color:var(--text2);margin-bottom:16px;font-size:14px}
+.cta-hard{text-align:center;padding:2.5rem 1.5rem;background:#1F2937;border-radius:var(--r-xl);color:#fff;margin:32px auto;max-width:720px}
+@media(min-width:640px){.cta-hard{padding:3rem 2rem;border-radius:var(--r-2xl);margin:48px auto}}
+.cta-hard h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.cta-hard h3 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.cta-hard p{opacity:.8;margin-bottom:18px;font-size:14px}
+.section{margin:0 auto;padding:3rem 0;max-width:720px}
+@media(min-width:640px){.section{padding:4rem 0}}
+.section h2{font-size:20px;font-weight:700;margin-bottom:1.5rem}
+.section h2 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.steps{display:grid;gap:20px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step{text-align:center;padding:16px 12px}
+.step-n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-ultra-light);color:var(--primary);font-weight:700;font-size:15px;margin-bottom:10px}
+.step h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step p{font-size:13px;color:var(--text2)}
+.section.section-lavender{background:#F5F3FF;max-width:none;padding-left:16px;padding-right:16px;margin-left:-16px;margin-right:-16px}
+@media(min-width:640px){.section.section-lavender{margin-left:-48px;margin-right:-48px;padding-left:48px;padding-right:48px}}
+.section-lavender .section-inner{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;cursor:pointer;font-size:14px;font-weight:600;background:none;border:none;width:100%;text-align:left;color:var(--text);font-family:var(--sans)}
+@media(min-width:640px){.faq-q{font-size:15px;padding:1.25rem 0}}
+.faq-q::after{content:'+';font-size:18px;color:var(--muted);margin-left:12px}
+.faq-q.open::after{content:'\2212'}
+.faq-a{padding:0 0 1rem;font-size:13px;color:var(--text2);line-height:1.7;display:none}
+.faq-a.open{display:block}
+.related{display:grid;gap:10px}
+@media(min-width:640px){.related{grid-template-columns:repeat(3,1fr);gap:14px}}
+.related a{padding:1rem;border:1px solid var(--border-light);border-radius:var(--r-xl);text-decoration:none;color:var(--text);background:var(--white);transition:all 300ms ease}
+.related a:hover{border-color:var(--primary-light);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.related h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.related p{font-size:12px;color:var(--text2)}
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:4rem;text-align:center;font-size:13px;color:var(--muted)}
+.footer a{color:var(--primary);text-decoration:none}
+@media print{.nav,.cta-soft,.cta-hard,.footer,.related,.steps,.faq-item,.section,.checklist-section{display:none!important}body{background:#fff}.page{padding:0}.tool{max-width:100%}.input-card{box-shadow:none;border:none;padding:0}print-color-adjust:exact;-webkit-print-color-adjust:exact}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://overloop.com" class="nav-logo"><img src="https://cdn.prod.website-files.com/6836b1fcfa0b25a3fed39db6/69d4cb02974de95cb4df5bd0_Logotype%20-%20Black.png" alt="Overloop" class="nav-logo-img"></a>
+  <div class="nav-links"><a href="https://overloop.com/features">Features</a><a href="https://overloop.com/pricing">Pricing</a><a href="/fr/" class="nav-link-active">Outils gratuits</a></div>
+  <div class="nav-right"><a href="https://app.overloop.ai/session/login" class="nav-login">Connexion</a><a href="https://app.overloop.ai/session/signup" class="btn btn-nav">Essai gratuit</a></div>
+</nav>
+<div class="page">
+<div class="hero-wrap"><div class="hero">
+  <h1>De combien de domaines avez-vous <em>vraiment</em> besoin ?</h1>
+  <p>La plupart des entreprises achetent 2 domaines et se demandent pourquoi elles finissent en spam. Entrez votre objectif de rendez-vous. On vous montre le bon setup.</p>
+</div></div>
+
+<div class="tool">
+  <!-- INPUT: Start from the goal -->
+  <div class="input-card">
+    <h2>Partez de ce qui compte</h2>
+    <p>Vous ne voulez pas des domaines. Vous voulez des rendez-vous. On s'occupe du reste.</p>
+
+    <div class="ig">
+      <label class="ig-label">Rendez-vous souhaites par mois <span class="ig-val" id="vMeetings">10</span></label>
+      <input type="range" id="meetings" min="1" max="50" value="10" oninput="upd()">
+    </div>
+
+    <!-- Reverse calculation shown live -->
+    <div class="reverse-box" id="reverseBox"></div>
+
+    <div class="ig">
+      <label class="ig-label">Votre domaine principal</label>
+      <input type="text" class="text-input" id="companyDomain" placeholder="acme.com" oninput="upd()">
+      <div class="ig-hint">Pour suggerer des noms de domaine. Laissez vide pour passer cette etape.</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="metrics" id="metrics"></div>
+
+  <!-- Infra diagram: domains → mailboxes → capacity -->
+  <h2 class="sh">Voici a quoi ressemble votre setup</h2>
+  <div class="diagram"><div class="diagram-inner" id="diagram"></div></div>
+
+  <!-- Warmup: one rule + visual proof -->
+  <div class="warmup-card">
+    <h2 class="sh">La partie que tout le monde zappe (et regrette)</h2>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:20px">Les nouvelles mailboxes n'ont aucune reputation. Gmail ne leur fait pas encore confiance. 2 semaines de patience ou 6 mois de galere. A vous de choisir.</p>
+
+    <div class="wu-compare">
+      <div class="wu-path wu-good">
+        <div class="wu-path-label">Avec warmup</div>
+        <div class="wu-path-bars" id="wuGood"></div>
+        <div class="wu-path-result wu-result-ok">95% en inbox apres 2 semaines</div>
+      </div>
+      <div class="wu-path wu-bad">
+        <div class="wu-path-label">Sans warmup</div>
+        <div class="wu-path-bars" id="wuBad"></div>
+        <div class="wu-path-result wu-result-danger">Blackliste. 3 a 6 mois pour s'en remettre.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Domain suggestions -->
+  <div class="dom-section" id="domSection" style="display:none">
+    <h2 class="sh">Noms de domaine prets a acheter</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Regle n°1 : n'envoyez jamais de cold emails depuis votre domaine principal. S'il est blackliste, toute votre entreprise perd ses emails. Utilisez ceux-ci a la place.</p>
+    <div class="dom-grid" id="domGrid"></div>
+  </div>
+
+  <!-- Warning -->
+  <div class="warn-box">
+    <strong>On voit le scenario de droite chaque semaine.</strong> 2 semaines de patience evitent 6 mois de galere.
+  </div>
+
+  <!-- Setup checklist -->
+  <div class="checklist-section">
+    <h2 class="sh">Suivez cet ordre. Ne sautez pas d'etapes.</h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Votre progression est sauvegardee. Revenez quand vous voulez.</p>
+    <div class="cl-progress"><div class="cl-bar-bg"><div class="cl-bar" id="clBar" style="width:0"></div></div><span class="cl-pct" id="clPct">0%</span></div>
+    <div id="checklist"></div>
+  </div>
+
+  <!-- Shopping list -->
+  <h2 class="sh">Ce qu'il faut acheter</h2>
+  <div id="shopList" style="margin-bottom:24px"></div>
+</div>
+
+<!-- Soft CTA -->
+<div class="tool" style="margin-bottom:0">
+  <div class="cta-soft">
+    <h3 id="ctaLine">Il vous faut 6 domaines et 12 mailboxes pour obtenir 10 rendez-vous/mois</h3>
+    <p>Achetez l'infrastructure, connectez-la a Overloop, et lancez votre premiere campagne.</p>
+    <a href="https://app.overloop.ai/session/signup" class="btn" style="width:100%;max-width:320px">Essayer Overloop gratuitement</a>
+  </div>
+</div>
+
+<!-- How it works -->
+<div class="section">
+  <h2>Comment ca marche</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Entrez votre objectif de rendez-vous</h3><p>On calcule a l'envers le nombre exact de domaines, mailboxes et emails necessaires.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Achetez l'infrastructure</h3><p>Noms de domaine suggeres. Liens vers Namecheap inclus. 15 minutes en tout.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Suivez la checklist</h3><p>8 etapes de zero a votre premiere campagne. Cochez au fur et a mesure.</p></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section section-lavender"><div class="section-inner">
+  <h2>Questions <em>frequentes</em></h2>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Pourquoi ai-je besoin de plusieurs domaines ?</button><div class="faq-a">Envoyer trop de cold emails depuis un seul domaine risque de le faire blacklister. Si votre domaine principal est blackliste, vos emails professionnels courants finissent aussi en spam. Des domaines d'envoi separes protegent votre reputation. La limite safe : 50 emails/jour par mailbox, 2 mailboxes par domaine.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Comment avez-vous calcule le nombre de prospects ?</button><div class="faq-a">On part de votre objectif de rendez-vous et on remonte avec les benchmarks du marche : ~3% des prospects contactes repondent, ~35% des reponses deviennent des rendez-vous. Pour 10 rendez-vous, il faut donc environ 10 / 0,35 / 0,03 = ~950 prospects. On arrondit et on utilise une sequence de 3 emails pour calculer le volume d'envoi.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Google Workspace ou Microsoft 365 ?</button><div class="faq-a">Les deux fonctionnent. Google Workspace delivre un peu mieux vers Gmail (~60% des emails B2B). Microsoft 365 est meilleur pour les boites Outlook/entreprise. Beaucoup d'equipes utilisent un mix. Le prix est d'environ 6$/mois par mailbox pour les deux.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Et si je veux envoyer plus tard ?</button><div class="faq-a">Augmentez votre objectif de rendez-vous et recalculez. Vous pouvez ajouter des domaines et mailboxes a tout moment. La periode de warmup s'applique a chaque nouveau domaine individuellement. Vos domaines existants continuent a envoyer a plein volume.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Ce calculateur est-il gratuit ?</button><div class="faq-a">Oui, 100% gratuit. Votre progression dans la checklist est sauvegardee dans votre navigateur, revenez quand vous voulez.</div></div>
+</div></div>
+
+<!-- Related -->
+<div class="section">
+  <h2>Autres outils gratuits</h2>
+  <div class="related">
+    <a href="/fr/roi-calculator/"><h4>Calculateur de ROI</h4><p>Combien de revenus votre outbound va generer ? Construisez le business case.</p></a>
+    <a href="/fr/spam-checker/"><h4>Coach de delivrabilite</h4><p>Collez votre cold email, obtenez un score avec des suggestions de correction.</p></a>
+    <a href="/fr/deliverability-checker/"><h4>Bilan de sante du domaine</h4><p>Verifiez votre SPF, DKIM, DMARC en un clic.</p></a>
+  </div>
+</div>
+
+<div class="cta-hard">
+  <h3>Vous connaissez le setup. Maintenant, <em>envoyez.</em></h3>
+  <p>Connectez vos mailboxes a Overloop. Premiere campagne en ligne en 15 minutes.</p>
+  <a href="https://app.overloop.ai/session/signup" class="btn-glow">Essayer Overloop gratuitement</a>
+</div>
+
+<footer class="footer"><a href="https://overloop.com">Overloop</a> — Plateforme de prospection outbound propulsee par l'IA</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('fr-FR');
+const fmtC=n=>n.toLocaleString('fr-FR',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
+
+// Benchmarks for reverse calc
+const REPLY_RATE=0.032; // 3.2%
+const MEETING_RATE=0.35; // 35% of replies
+const SEQ_STEPS=3;
+const EMAILS_PER_MAILBOX_DAY=50;
+const MAILBOXES_PER_DOMAIN=2;
+const WORKING_DAYS=20;
+const MAILBOX_COST=6; // $/mo
+const DOMAIN_COST_YR=11;
+const TOOL_COST=99;
+
+function calc(meetingsGoal){
+  // Reverse: meetings → prospects
+  const repliesNeeded=Math.ceil(meetingsGoal/MEETING_RATE);
+  const prospectsNeeded=Math.ceil(repliesNeeded/REPLY_RATE);
+  const emailsPerMonth=prospectsNeeded*SEQ_STEPS;
+  const emailsPerDay=Math.ceil(emailsPerMonth/WORKING_DAYS);
+  const mailboxes=Math.max(1,Math.ceil(emailsPerDay/EMAILS_PER_MAILBOX_DAY));
+  const domains=Math.max(1,Math.ceil(mailboxes/MAILBOXES_PER_DOMAIN));
+  const domainCostMo=domains*(DOMAIN_COST_YR/12);
+  const mailboxCostMo=mailboxes*MAILBOX_COST;
+  const totalMo=domainCostMo+mailboxCostMo+TOOL_COST;
+
+  // Warmup: 30 days, per-mailbox daily limit
+  const warmupDays=[];
+  for(let d=1;d<=30;d++){
+    let perMb;
+    if(d<=5) perMb=5;
+    else if(d<=10) perMb=Math.min(5+((d-5)*4),25);// 5→25
+    else if(d<=18) perMb=Math.min(25+((d-10)*3),50);// 25→50
+    else perMb=50;
+    warmupDays.push({day:d,perMailbox:perMb,total:perMb*mailboxes,phase:d<=10?'warmup':d<=18?'ramp':'full'});
+  }
+
+  return{meetingsGoal,repliesNeeded,prospectsNeeded,emailsPerMonth,emailsPerDay,
+    mailboxes,domains,domainCostMo,mailboxCostMo,totalMo,warmupDays};
+}
+
+function genDomains(domain,count){
+  if(!domain||domain.length<3)return[];
+  const base=domain.replace(/\.(com|io|co|ai|net|org|app)$/,'');
+  const prefixes=['get','try','use','hey','go','with','meet','hello','join','start'];
+  const suffixes=['hq','app','mail','team','now','hub','pro','ai','io','co'];
+  const names=new Set();
+  prefixes.forEach(p=>names.add(p+base+'.com'));
+  suffixes.forEach(s=>names.add(base+s+'.com'));
+  prefixes.slice(0,4).forEach(p=>names.add(p+base+'.io'));
+  return[...names].slice(0,Math.max(count*2,6));
+}
+
+// Checklist items (dynamic based on calc)
+function getChecklistItems(r){
+  return[
+    {id:'buy-domains',title:`Acheter ${r.domains} domaine${r.domains>1?'s':''}`,desc:'Namecheap ou Cloudflare. ~11$/an chacun.'},
+    {id:'setup-mailboxes',title:`Creer ${r.mailboxes} compte${r.mailboxes>1?'s':''} Google Workspace`,desc:`${MAILBOX_COST}$/mois chacun. Un nom personnel par mailbox (john@, sarah@).`},
+    {id:'spf',title:'Configurer les enregistrements SPF',desc:'Ajoutez l\'enregistrement TXT SPF au DNS de chaque domaine.'},
+    {id:'dkim',title:'Configurer les enregistrements DKIM',desc:'Ajoutez l\'enregistrement TXT DKIM. Google Workspace le genere pour vous.'},
+    {id:'dmarc',title:'Configurer le DMARC',desc:'Ajoutez un enregistrement TXT DMARC. Commencez avec p=none, passez a p=quarantine ensuite.'},
+    {id:'connect',title:'Connecter les mailboxes a Overloop',desc:'Ajoutez chaque mailbox dans les parametres Overloop. 2 minutes par mailbox.'},
+    {id:'warmup',title:'Lancer le warmup (2-3 semaines)',desc:'Activez le warmup dans Overloop. Suivez le calendrier ci-dessus.'},
+    {id:'campaign',title:'Lancer la premiere campagne',desc:'Redigez votre sequence, importez vos prospects, et envoyez.'}
+  ];
+}
+
+// Checklist state in localStorage
+function loadChecked(){try{return JSON.parse(localStorage.getItem('overloop_infra_cl')||'{}');}catch(e){return{};}}
+function saveChecked(s){localStorage.setItem('overloop_infra_cl',JSON.stringify(s));}
+
+function renderChecklist(r){
+  const items=getChecklistItems(r);
+  const checked=loadChecked();
+  const done=items.filter(i=>checked[i.id]).length;
+  const pct=Math.round((done/items.length)*100);
+  $('clBar').style.width=pct+'%';
+  $('clPct').textContent=pct+'%';
+
+  $('checklist').innerHTML=items.map(i=>`
+    <div class="cl-item${checked[i.id]?' done':''}" onclick="toggleCheck('${i.id}')">
+      <div class="cl-check"></div>
+      <div class="cl-text"><div class="cl-title">${i.title}</div><div class="cl-desc">${i.desc}</div></div>
+    </div>
+  `).join('');
+}
+
+function toggleCheck(id){
+  const s=loadChecked();
+  s[id]=!s[id];
+  saveChecked(s);
+  upd();
+}
+
+function upd(){
+  const meetingsGoal=parseInt($('meetings').value);
+  $('vMeetings').textContent=meetingsGoal;
+  const r=calc(meetingsGoal);
+
+  // Reverse calc box
+  $('reverseBox').innerHTML=`
+    <div class="rv-line"><span class="rv-label">Vous voulez</span><span class="rv-val">${r.meetingsGoal} rendez-vous/mois</span></div>
+    <div class="rv-line"><span class="rv-label">Il faut ~${r.repliesNeeded} reponses</span><span class="rv-val">${Math.round(MEETING_RATE*100)}% taux de conversion</span></div>
+    <div class="rv-line"><span class="rv-label">Il faut ~${fmt(r.prospectsNeeded)} prospects</span><span class="rv-val">${(REPLY_RATE*100).toFixed(1)}% taux de reponse</span></div>
+    <div class="rv-line"><span class="rv-label">${SEQ_STEPS} emails par prospect</span><span class="rv-val">${fmt(r.emailsPerMonth)} emails/mois</span></div>
+    <div class="rv-line rv-result"><span>Vous devez envoyer ${fmt(r.emailsPerDay)} emails/jour</span><span class="rv-val">${r.domains} domaines, ${r.mailboxes} mailboxes</span></div>
+  `;
+
+  // Metrics
+  $('metrics').innerHTML=`
+    <div class="m-card"><div class="m-label">Prospects/mois</div><div class="m-val">${fmt(r.prospectsNeeded)}</div><div class="m-sub">${fmt(Math.ceil(r.prospectsNeeded/WORKING_DAYS))}/jour</div></div>
+    <div class="m-card"><div class="m-label">Domaines</div><div class="m-val">${r.domains}</div><div class="m-sub">${fmtC(r.domains*DOMAIN_COST_YR)}/an</div></div>
+    <div class="m-card"><div class="m-label">Mailboxes</div><div class="m-val">${r.mailboxes}</div><div class="m-sub">${fmtC(r.mailboxCostMo)}/mois</div></div>
+    <div class="m-card"><div class="m-label">Cout total</div><div class="m-val">${fmtC(r.totalMo)}</div><div class="m-sub">par mois</div></div>
+  `;
+
+  // Infra diagram: show actual domains with mailboxes
+  let diagHtml='';
+  const dom=genDomains($('companyDomain').value.trim(),r.domains);
+  for(let d=0;d<r.domains;d++){
+    const dName=dom[d]||`domain-${d+1}.com`;
+    const mbCount=d<r.domains-1?MAILBOXES_PER_DOMAIN:r.mailboxes-d*MAILBOXES_PER_DOMAIN;
+    let mbHtml='';
+    for(let m=0;m<mbCount;m++){
+      mbHtml+=`<div class="d-mb"><div class="d-mb-icon">📬</div><div class="d-mb-cap">${EMAILS_PER_MAILBOX_DAY}/jour</div><div class="d-mb-label">mailbox ${m+1}</div></div>`;
+    }
+    diagHtml+=`<div class="d-row"><div class="d-domain"><div class="d-domain-name">🌐 ${dName}</div><div class="d-mailboxes">${mbHtml}</div></div></div>`;
+  }
+  diagHtml+=`<div class="d-total">Capacite totale : <strong>${fmt(r.mailboxes*EMAILS_PER_MAILBOX_DAY)}</strong> emails/jour → <strong>${fmt(r.mailboxes*EMAILS_PER_MAILBOX_DAY*WORKING_DAYS)}</strong>/mois</div>`;
+  $('diagram').innerHTML=diagHtml;
+
+  // Warmup comparison: labeled bars
+  // Good: inbox placement rate over 14 days with proper warmup
+  const goodData=[
+    {d:'J1',v:60},{d:'J2',v:65},{d:'J3',v:68},{d:'J4',v:72},{d:'J5',v:75},
+    {d:'J6',v:78},{d:'J7',v:80},{d:'J8',v:83},{d:'J9',v:87},{d:'J10',v:90},
+    {d:'J11',v:92},{d:'J12',v:93},{d:'J13',v:94},{d:'J14',v:95}
+  ];
+  $('wuGood').innerHTML=goodData.map((b,i)=>{
+    const showLabel=i===0||i===4||i===9||i===13;
+    return`<div class="wu-bar-item" style="height:${b.v}%;background:var(--ok)">
+      ${showLabel?`<div class="wu-bar-tip" style="color:var(--ok)">${b.v}%</div>`:''}
+    </div>`;
+  }).join('');
+
+  // Bad: inbox placement rate crashes when sending full volume day 1
+  const badData=[
+    {d:'J1',v:90},{d:'J2',v:75},{d:'J3',v:60},{d:'J4',v:45},{d:'J5',v:35},
+    {d:'J6',v:25},{d:'J7',v:18},{d:'J8',v:12},{d:'J9',v:8},{d:'J10',v:5},
+    {d:'J11',v:3},{d:'J12',v:2},{d:'J13',v:2},{d:'J14',v:1}
+  ];
+  $('wuBad').innerHTML=badData.map((b,i)=>{
+    const showLabel=i===0||i===4||i===9||i===13;
+    return`<div class="wu-bar-item" style="height:${b.v}%;background:var(--danger)">
+      ${showLabel?`<div class="wu-bar-tip" style="color:var(--danger)">${b.v}%</div>`:''}
+    </div>`;
+  }).join('');
+
+  // Domain suggestions
+  if(dom.length>0){
+    $('domSection').style.display='block';
+    $('domGrid').innerHTML=dom.slice(0,r.domains*2).map(d=>{
+      const searchUrl='https://www.namecheap.com/domains/registration/results/?domain='+encodeURIComponent(d);
+      return`<div class="dom-chip"><span class="dom-name">${d}</span><div class="dom-actions"><a href="${searchUrl}" target="_blank" class="dom-link">Verifier</a></div></div>`;
+    }).join('');
+  }else{$('domSection').style.display='none';}
+
+  // Shopping list
+  $('shopList').innerHTML=`
+    <div class="shop-item"><div><div class="shop-what">${r.domains} domaine${r.domains>1?'s':''}</div><div class="shop-detail">Namecheap ou Cloudflare (~11$/an chacun)</div></div><div class="shop-cost">${fmtC(r.domains*DOMAIN_COST_YR)}/an</div></div>
+    <div class="shop-item"><div><div class="shop-what">${r.mailboxes} mailbox${r.mailboxes>1?'es':''}</div><div class="shop-detail">Google Workspace a ${MAILBOX_COST}$/mois chacune</div></div><div class="shop-cost">${fmtC(r.mailboxCostMo)}/mois</div></div>
+    <div class="shop-item"><div><div class="shop-what">Overloop</div><div class="shop-detail">Plateforme outbound (sequences email + LinkedIn)</div></div><div class="shop-cost">${TOOL_COST}$/mois</div></div>
+    <div class="shop-total"><div>Cout mensuel total</div><div class="shop-cost">${fmtC(r.totalMo)}/mois</div></div>
+  `;
+
+  // CTA
+  $('ctaLine').textContent=`Il vous faut ${r.domains} domaine${r.domains>1?'s':''} et ${r.mailboxes} mailbox${r.mailboxes>1?'es':''} pour obtenir ${r.meetingsGoal} rendez-vous/mois`;
+
+  // Checklist
+  renderChecklist(r);
+}
+
+upd();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculateur d'infrastructure cold email","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Pourquoi ai-je besoin de plusieurs domaines ?","acceptedAnswer":{"@type":"Answer","text":"Envoyer trop de cold emails depuis un seul domaine risque de le faire blacklister. Des domaines d'envoi separes protegent votre reputation."}},{"@type":"Question","name":"Comment avez-vous calcule le nombre de prospects ?","acceptedAnswer":{"@type":"Answer","text":"On part de votre objectif de rendez-vous : rendez-vous souhaites / 35% taux de conversion / 3,2% taux de reponse = prospects necessaires."}},{"@type":"Question","name":"Combien de temps avant le plein volume ?","acceptedAnswer":{"@type":"Answer","text":"Environ 2-3 semaines avec un warmup correct. Le calendrier de 30 jours montre les limites quotidiennes exactes."}}]}</script>
+</body>
+</html>

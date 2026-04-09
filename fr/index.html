@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outils outbound gratuits — Calculateurs cold email, diagnostics & playbooks | Overloop</title>
+<meta name="description" content="Tout ce qu'il faut pour lancer l'outbound. Calculateur de ROI, planificateur d'infrastructure, spam checker, diagnostic de domaine et 14 playbooks par industrie. 100% gratuit.">
+<link rel="canonical" href="https://tools.overloop.com/fr/">
+<link rel="alternate" hreflang="en" href="https://tools.overloop.com/">
+<link rel="alternate" hreflang="fr" href="https://tools.overloop.com/fr/">
+<link rel="alternate" hreflang="x-default" href="https://tools.overloop.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7C3AED;--primary-dark:#6D28D9;--primary-light:#A78BFA;--primary-ultra-light:#EDE9FE;--primary-faint:#F5F3FF;--bg:#FAFAFA;--surface:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB;--border-light:#F3F4F6;--text:#1F2937;--text2:#6B7280;--muted:#9CA3AF;--ok:#10B981;--mono:'JetBrains Mono',monospace;--sans:'Epilogue',-apple-system,BlinkMacSystemFont,sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);--shadow-glow:0 0 40px rgba(124,58,237,0.25);--r:0.75rem;--r-xl:1rem;--r-2xl:1.5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.page{padding:0 48px}}
+.nav{display:flex;align-items:center;gap:.75rem;padding:0 16px;height:60px;border-bottom:1px solid var(--border-light);margin-bottom:32px;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:100}
+@media(min-width:640px){.nav{padding:0 48px;height:72px;gap:2rem;margin-bottom:48px}}
+.nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:22px;width:auto}
+@media(min-width:640px){.nav-logo-img{height:28px}}
+.nav-links{display:none;gap:1.5rem;margin-right:auto}
+@media(min-width:640px){.nav-links{display:flex}}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.nav-links a:hover,.nav-link-active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:.75rem;margin-left:auto}
+.nav-login{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.5rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:.9375rem;font-weight:600;font-family:var(--sans);cursor:pointer;text-decoration:none;box-shadow:var(--shadow-md);transition:all 200ms ease}
+.btn:hover{background:var(--primary-dark);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.btn-nav{padding:.5rem 1.25rem;font-size:.8125rem}
+.btn-glow{background:linear-gradient(135deg,#7C3AED,#5B21B6);padding:1rem 2.5rem;border-radius:var(--r-xl);font-size:1rem;box-shadow:var(--shadow-glow)}
+.btn-glow:hover{box-shadow:0 0 60px rgba(124,58,237,0.4);transform:translateY(-2px)}
+
+/* Hero */
+.hero-wrap{background:linear-gradient(180deg,#FFFFFF 0%,#F5F3FF 50%,#FAFAFA 100%);margin:-32px -16px 32px;padding:48px 16px}
+@media(min-width:640px){.hero-wrap{margin:-48px -48px 48px;padding:72px 48px}}
+.hero{text-align:center;max-width:640px;margin:0 auto}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.1;margin-bottom:16px}
+.hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.hero p{font-size:16px;color:var(--text2);max-width:480px;margin:0 auto}
+@media(min-width:640px){.hero p{font-size:18px}}
+
+/* Workflow steps */
+.workflow{max-width:800px;margin:0 auto 48px}
+@media(min-width:640px){.workflow{margin-bottom:72px}}
+.wf-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);text-align:center;margin-bottom:8px}
+.wf-title{font-size:20px;font-weight:700;text-align:center;margin-bottom:24px}
+@media(min-width:640px){.wf-title{font-size:24px;margin-bottom:32px}}
+
+/* Tool cards (the main event) */
+.tool-grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.tool-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+.tool-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--border);border-radius:12px;padding:24px 20px;text-decoration:none;color:var(--text);display:flex;gap:16px;align-items:flex-start;transition:all 200ms}
+.tool-card:hover{border-top-color:var(--primary);box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.tc-num{width:36px;height:36px;border-radius:10px;background:var(--primary-faint);color:var(--primary);font-family:var(--mono);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tc-content{flex:1;min-width:0}
+.tc-title{font-size:16px;font-weight:700;margin-bottom:4px}
+@media(min-width:640px){.tc-title{font-size:17px}}
+.tc-desc{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:10px}
+.tc-cta{font-size:12px;font-weight:600;color:var(--primary);display:inline-flex;align-items:center;gap:4px;transition:gap 200ms}
+.tool-card:hover .tc-cta{gap:8px}
+
+/* Playbooks section */
+.pb-section{max-width:800px;margin:0 auto 48px;padding-top:48px;border-top:1px solid var(--border-light)}
+@media(min-width:640px){.pb-section{margin-bottom:72px;padding-top:64px}}
+.pb-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:4px}
+.pb-title{font-size:20px;font-weight:700;margin-bottom:6px}
+@media(min-width:640px){.pb-title{font-size:24px}}
+.pb-subtitle{font-size:15px;color:var(--text2);margin-bottom:24px}
+.pb-mini-grid{display:grid;gap:8px;grid-template-columns:1fr}
+@media(min-width:640px){.pb-mini-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
+.pb-mini{background:var(--white);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:all 200ms;display:flex;justify-content:space-between;align-items:center}
+.pb-mini:hover{border-color:var(--primary-light);box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.pb-mini-name{font-weight:600;font-size:14px}
+.pb-mini-stat{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pb-more{text-align:center;margin-top:16px}
+.pb-more a{font-size:13px;font-weight:600;color:var(--primary);text-decoration:none}
+
+/* CTA */
+.cta-hard{text-align:center;padding:2.5rem 1.5rem;background:#1F2937;border-radius:var(--r-xl);color:#fff;margin:32px auto;max-width:800px}
+@media(min-width:640px){.cta-hard{padding:3.5rem 2rem;border-radius:var(--r-2xl);margin:48px auto}}
+.cta-hard h3{font-size:22px;font-weight:700;margin-bottom:8px}
+@media(min-width:640px){.cta-hard h3{font-size:26px}}
+.cta-hard h3 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.cta-hard p{opacity:.8;margin-bottom:20px;font-size:15px}
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:4rem;text-align:center;font-size:13px;color:var(--muted)}
+.footer a{color:var(--primary);text-decoration:none}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://overloop.com" class="nav-logo"><img src="https://cdn.prod.website-files.com/6836b1fcfa0b25a3fed39db6/69d4cb02974de95cb4df5bd0_Logotype%20-%20Black.png" alt="Overloop" class="nav-logo-img"></a>
+  <div class="nav-links"><a href="https://overloop.com/features">Features</a><a href="https://overloop.com/pricing">Pricing</a><a href="/fr/" class="nav-link-active">Outils gratuits</a></div>
+  <div class="nav-right"><a href="https://app.overloop.ai/session/login" class="nav-login">Login</a><a href="https://app.overloop.ai/session/signup" class="btn btn-nav">Sign up free</a></div>
+</nav>
+<div class="page">
+
+<div class="hero-wrap"><div class="hero">
+  <h1>Tout pour lancer votre <em>outbound</em></h1>
+  <p>5 outils gratuits. 14 playbooks. Sans inscription. De "le cold email, ca vaut le coup ?" a "premiere campagne envoyee" en un apres-midi.</p>
+</div></div>
+
+<div class="workflow">
+  <div class="wf-label">La checklist outbound</div>
+  <div class="wf-title">Suivez les etapes dans l'ordre. Ne sautez rien.</div>
+  <div class="tool-grid">
+    <a href="./roi-calculator/" class="tool-card">
+      <div class="tc-num">1</div>
+      <div class="tc-content">
+        <div class="tc-title">Le cold email va-t-il marcher pour vous ?</div>
+        <div class="tc-desc">Calculateur de ROI. Entrez votre industrie, obtenez une projection de revenus mois par mois avec comparaison de canaux. A envoyer a votre DAF.</div>
+        <div class="tc-cta">Ouvrir le calculateur →</div>
+      </div>
+    </a>
+    <a href="./infrastructure-calculator/" class="tool-card">
+      <div class="tc-num">2</div>
+      <div class="tc-content">
+        <div class="tc-title">De combien de domaines avez-vous besoin ?</div>
+        <div class="tc-desc">Entrez votre objectif de meetings. On calcule les domaines, mailboxes, planning de warmup, suggestions de noms de domaine et liste d'achats.</div>
+        <div class="tc-cta">Planifier votre setup →</div>
+      </div>
+    </a>
+    <a href="./domain-health/" class="tool-card">
+      <div class="tc-num">3</div>
+      <div class="tc-content">
+        <div class="tc-title">Votre domaine est-il bien configure ?</div>
+        <div class="tc-desc">Verifiez SPF, DKIM, DMARC, MX et le statut blacklist en un clic. Copiez-collez les enregistrements DNS pour corriger ce qui ne va pas.</div>
+        <div class="tc-cta">Verifier votre domaine →</div>
+      </div>
+    </a>
+    <a href="./spam-checker/" class="tool-card">
+      <div class="tc-num">4</div>
+      <div class="tc-content">
+        <div class="tc-title">Votre email finit-il en spam ?</div>
+        <div class="tc-desc">Analyse sur 7 dimensions. Pas juste les spam words : longueur, liens, personnalisation, niveau de lecture, CTA, objet. Correction en un clic.</div>
+        <div class="tc-cta">Analyser votre email →</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="pb-section">
+  <div class="pb-label">Etape 5</div>
+  <div class="pb-title">Choisissez votre playbook et envoyez</div>
+  <div class="pb-subtitle">14 strategies par industrie. ICP, angles de messaging, sequences email + LinkedIn, templates, benchmarks.</div>
+
+  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">Agences</div>
+  <div class="pb-mini-grid" style="margin-bottom:20px">
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Marketing</span><span class="pb-mini-stat">38% open · 5.1% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Digital & web</span><span class="pb-mini-stat">36% open · 4.8% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">SEO</span><span class="pb-mini-stat">40% open · 4.2% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">RP & communication</span><span class="pb-mini-stat">37% open · 4.6% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Branding & design</span><span class="pb-mini-stat">35% open · 4.2% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Social media</span><span class="pb-mini-stat">39% open · 5.0% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Performance / paid</span><span class="pb-mini-stat">36% open · 4.4% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Content marketing</span><span class="pb-mini-stat">38% open · 4.3% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Dev & produit</span><span class="pb-mini-stat">34% open · 3.8% reply</span></a>
+  </div>
+
+  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">Industries</div>
+  <div class="pb-mini-grid">
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">SaaS B2B</span><span class="pb-mini-stat">45% open · 3.2% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">E-commerce</span><span class="pb-mini-stat">35% open · 4.5% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Consulting</span><span class="pb-mini-stat">40% open · 4.0% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Fintech</span><span class="pb-mini-stat">41% open · 2.8% reply</span></a>
+    <a href="./playbooks/" class="pb-mini"><span class="pb-mini-name">Recrutement</span><span class="pb-mini-stat">42% open · 5.5% reply</span></a>
+  </div>
+  <div class="pb-more"><a href="./playbooks/">Voir les 14 playbooks →</a></div>
+</div>
+
+<div class="cta-hard">
+  <h3>Checklist terminee ? Place a <em>l'envoi.</em></h3>
+  <p>Connectez vos mailboxes, collez vos templates et lancez votre premiere campagne en 15 minutes.</p>
+  <a href="https://app.overloop.ai/session/signup" class="btn-glow">Essayer Overloop gratuitement</a>
+</div>
+
+<footer class="footer"><a href="https://overloop.com">Overloop</a> — Plateforme de prospection outbound propulsee par l'IA</footer>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Outils outbound gratuits","description":"Calculateurs cold email, diagnostics, playbooks. Tout ce qu'il faut pour lancer l'outbound.","url":"https://tools.overloop.com/fr/"}</script>
+</body>
+</html>

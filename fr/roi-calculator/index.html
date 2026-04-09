@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de ROI Cold Email gratuit — Construisez votre business case outbound | Overloop</title>
+<meta name="description" content="Calculez le ROI de vos campagnes cold email en quelques secondes. Projection de revenus mois par mois, comparaison de canaux et business case exportable. Gratuit, sans inscription.">
+<link rel="canonical" href="https://tools.overloop.com/fr/roi-calculator/">
+<link rel="alternate" hreflang="en" href="https://tools.overloop.com/roi-calculator/">
+<link rel="alternate" hreflang="fr" href="https://tools.overloop.com/fr/roi-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://tools.overloop.com/roi-calculator/">
+<meta property="og:title" content="Calculateur de ROI Cold Email gratuit | Overloop">
+<meta property="og:description" content="Entrez vos chiffres. Obtenez une projection de revenus a montrer a votre CFO.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.overloop.com/fr/roi-calculator/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#7C3AED;--primary-dark:#6D28D9;--primary-darker:#5B21B6;--primary-light:#A78BFA;--primary-ultra-light:#EDE9FE;--primary-faint:#F5F3FF;--bg:#FAFAFA;--surface:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB;--border-light:#F3F4F6;--text:#1F2937;--text2:#6B7280;--muted:#9CA3AF;--ok:#10B981;--warn:#F59E0B;--danger:#EF4444;--mono:'JetBrains Mono',monospace;--sans:'Epilogue',-apple-system,BlinkMacSystemFont,sans-serif;--shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);--shadow-glow:0 0 40px rgba(124,58,237,0.25);--r-sm:0.375rem;--r:0.75rem;--r-xl:1rem;--r-2xl:1.5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.page{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.page{padding:0 48px}}
+.nav{display:flex;align-items:center;gap:0.75rem;padding:0 16px;height:60px;border-bottom:1px solid var(--border-light);margin-bottom:32px;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:100;max-width:100%;width:100%}
+@media(min-width:640px){.nav{padding:0 48px;height:72px;gap:2rem;margin-bottom:48px}}
+.nav-logo{flex-shrink:0;display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:22px;width:auto}
+@media(min-width:640px){.nav-logo-img{height:28px}}
+.nav-links{display:flex;gap:1.5rem;margin-right:auto}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color 150ms ease}
+.nav-links a:hover,.nav-link-active{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:0.75rem}
+.nav-login{font-size:0.875rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color 150ms ease}
+.nav-login:hover{color:var(--text)}
+.btn-nav{padding:0.5rem 1.25rem;font-size:0.8125rem;border-radius:var(--r)}
+@media(max-width:639px){.nav-links{display:none}.nav-right{margin-left:auto}}
+.hero-wrap{background:linear-gradient(180deg,#FFFFFF 0%,#F5F3FF 50%,#FAFAFA 100%);margin:-32px -16px 32px;padding:32px 16px}
+@media(min-width:640px){.hero-wrap{margin:-48px -48px 48px;padding:48px}}
+.hero{text-align:center;margin-bottom:0;max-width:720px;margin-left:auto;margin-right:auto}
+.hero h1{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.hero p{font-size:18px;color:var(--text2)}
+.tool{max-width:720px;margin:0 auto 48px}
+.inputs-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.25rem;margin-bottom:24px;box-shadow:var(--shadow-xl)}
+@media(min-width:640px){.inputs-section{border-radius:var(--r-2xl);padding:2.5rem;margin-bottom:32px}}
+.input-row{display:grid;gap:20px;margin-bottom:20px}
+@media(min-width:640px){.input-row-2{grid-template-columns:1fr 1fr}.input-row-4{grid-template-columns:1fr 1fr}}
+.input-group{margin-bottom:0}
+.input-label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.input-value{font-family:var(--mono);font-weight:700;font-size:14px;color:var(--primary)}
+.industry-hint{font-size:11px;color:var(--muted);font-weight:400;margin-top:2px;min-height:16px;transition:opacity .3s}
+select{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);font-size:0.9375rem;font-family:var(--sans);background:var(--white);color:var(--text);cursor:pointer;transition:all 150ms ease}
+select:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+input[type=range]{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,#EDE9FE,#A78BFA);outline:none;margin-top:4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#FFFFFF;border:3px solid #7C3AED;cursor:pointer;box-shadow:0 2px 8px rgba(124,58,237,0.3)}
+/* Benchmarks card */
+.benchmarks-card{background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:0}
+.bench-title{font-size:12px;color:var(--text2);margin-bottom:10px}
+.bench-title strong{color:var(--text);font-weight:600}
+.bench-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:639px){.bench-grid{grid-template-columns:repeat(2,1fr)}}
+.bench-item{text-align:center}
+.bench-val{display:block;font-family:var(--mono);font-size:18px;font-weight:700;color:var(--primary)}
+.bench-lbl{font-size:11px;color:var(--muted)}
+.prospects-context{font-size:12px;color:var(--text2);margin-top:6px}
+.prospects-context strong{color:var(--text);font-weight:600}
+
+/* Infra explainer */
+.infra-explainer{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:1rem;margin-bottom:24px}
+@media(min-width:640px){.infra-explainer{border-radius:var(--r-2xl);padding:1.5rem;margin-bottom:36px}}
+.infra-explainer h2{font-size:17px;font-weight:700;margin-bottom:12px}
+@media(min-width:640px){.infra-explainer h2{font-size:20px;margin-bottom:16px}}
+.infra-math{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;margin-bottom:12px;padding:12px;background:var(--bg);border-radius:var(--r);color:var(--text2)}
+@media(min-width:640px){.infra-math{font-size:14px;gap:8px;padding:16px;margin-bottom:16px}}
+.infra-math .num{font-size:16px;font-weight:700;color:var(--text)}
+@media(min-width:640px){.infra-math .num{font-size:20px}}
+.infra-math .op{font-size:14px;color:var(--muted)}
+.infra-math .eq{font-size:20px;font-weight:700;color:var(--primary)}
+.infra-visual{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:640px){.infra-visual{grid-template-columns:repeat(4,1fr);gap:12px}}
+.infra-block{background:var(--bg);border:1px solid var(--border-light);border-radius:var(--r);padding:10px;text-align:center}
+@media(min-width:640px){.infra-block{padding:12px}}
+.infra-block .ib-icon{font-size:20px;margin-bottom:2px}
+@media(min-width:640px){.infra-block .ib-icon{font-size:24px;margin-bottom:4px}}
+.infra-block .ib-num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--primary)}
+@media(min-width:640px){.infra-block .ib-num{font-size:24px}}
+.infra-block .ib-label{font-size:12px;color:var(--text2);margin-top:2px}
+.infra-block .ib-sub{font-size:11px;color:var(--muted)}
+
+.advanced-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;padding:8px 0;margin-top:4px;transition:color 150ms ease}
+.advanced-toggle:hover{color:var(--text2)}
+.advanced-toggle::before{content:'+';display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--surface);font-size:14px;font-weight:600;color:var(--muted);transition:all 150ms ease}
+.advanced-toggle.open::before{content:'\2212';background:var(--primary-ultra-light);color:var(--primary)}
+.advanced-panel{display:none;border-top:1px solid var(--border-light);margin-top:16px;padding-top:4px}
+.advanced-panel.open{display:block}
+
+/* Results */
+.results{margin-bottom:48px}
+.results h2{font-size:20px;font-weight:700;margin-bottom:20px}
+
+/* Metrics grid */
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:24px}
+@media(min-width:640px){.metrics{grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}}
+.metric{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r);padding:0.875rem;text-align:center;transition:all 300ms ease}
+@media(min-width:640px){.metric{border-radius:var(--r-xl);padding:1.25rem}}
+.metric:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.metric-value{font-family:var(--mono);font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--primary);transition:all .3s}
+.metric-sub{font-size:12px;color:var(--text2);margin-top:2px}
+.metric-value.green{color:var(--ok)}
+
+/* Funnel — hide on mobile, too cramped */
+.funnel-section{margin-bottom:36px;display:none}
+@media(min-width:640px){.funnel-section{display:block}}
+.funnel-svg{width:100%;max-width:600px;margin:0 auto;display:block}
+
+/* Chart */
+.chart-section{margin-bottom:36px}
+.chart-container{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:0.875rem;box-shadow:var(--shadow-md)}
+@media(min-width:640px){.chart-container{border-radius:var(--r-2xl);padding:1.5rem}}
+.chart-svg{width:100%;height:300px}
+.chart-legend{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:12px;color:var(--text2)}
+.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+
+/* Bar chart */
+.bar-chart{display:flex;align-items:flex-end;gap:2px;height:150px;padding:0}
+@media(min-width:640px){.bar-chart{gap:4px;height:200px}}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;min-width:0;height:100%}
+.bar-col-top{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;width:100%;position:relative}
+.bar-fill{width:100%;border-radius:3px 3px 0 0;min-height:2px}
+@media(min-width:640px){.bar-fill{border-radius:4px 4px 0 0}}
+.bar-val{font-family:var(--mono);font-size:8px;font-weight:700;color:var(--text);white-space:nowrap;margin-bottom:2px;min-height:12px}
+@media(min-width:640px){.bar-val{font-size:9px;margin-bottom:4px}}
+.bar-label{font-family:var(--mono);font-size:8px;color:var(--muted);margin-top:4px;flex-shrink:0}
+@media(min-width:640px){.bar-label{font-size:10px;margin-top:6px}}
+
+/* Channel comparison table */
+.channels-section{margin-bottom:36px}
+.channel-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.channel-table{width:100%;border-collapse:collapse;font-size:12px}
+@media(min-width:640px){.channel-table{font-size:13px}}
+.channel-table th{text-align:left;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:8px 6px;border-bottom:2px solid var(--border);white-space:nowrap}
+@media(min-width:640px){.channel-table th{padding:10px 12px;font-size:11px}}
+.channel-table td{padding:8px 6px;border-bottom:1px solid var(--border-light);vertical-align:middle}
+@media(min-width:640px){.channel-table td{padding:12px}}
+.channel-table td:not(:first-child){font-family:var(--mono);font-size:11px;text-align:right}
+@media(min-width:640px){.channel-table td:not(:first-child){font-size:13px}}
+.channel-table th:not(:first-child){text-align:right}
+.channel-table tr.ch-winner{background:var(--primary-faint)}
+.channel-table tr.ch-winner td:first-child{font-weight:700;color:var(--primary)}
+.ch-roi-pos{color:var(--ok);font-weight:700}
+.ch-roi-neg{color:var(--danger);font-weight:700}
+.ch-cac-note{font-size:10px;color:var(--muted);font-family:var(--sans);font-weight:400;display:block;margin-top:1px}
+.channel-source{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic}
+
+/* Cost breakdown */
+.cost-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:24px}
+.cost-table th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border)}
+.cost-table td{padding:8px 0;border-bottom:1px solid var(--border)}
+.cost-table td:nth-child(2),.cost-table td:nth-child(3),.cost-table th:nth-child(2),.cost-table th:nth-child(3){text-align:right;font-family:var(--mono);font-size:13px}
+.cost-table tr:last-child td{font-weight:700;border-bottom:none}
+
+/* CTA */
+.cta-soft{text-align:center;padding:2rem;background:var(--primary-faint);border:1px solid var(--primary-ultra-light);border-radius:var(--r-2xl);margin:40px 0}
+.cta-soft h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.cta-soft p{color:var(--text2);margin-bottom:16px;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:0.75rem 1.5rem;background:var(--primary);color:#fff;border:none;border-radius:var(--r);font-size:0.9375rem;font-weight:600;font-family:var(--sans);cursor:pointer;text-decoration:none;box-shadow:var(--shadow-md);transition:all 200ms ease}
+.btn:hover{background:var(--primary-dark);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid rgba(124,58,237,0.2);box-shadow:none}.btn-outline:hover{border-color:var(--primary);background:var(--primary-faint);box-shadow:none;transform:translateY(-1px)}
+
+.cta-hard{text-align:center;padding:3rem 2rem;background:#1F2937;border-radius:var(--r-2xl);color:#fff;margin:48px auto;max-width:720px}
+.cta-hard h3{font-size:22px;font-weight:700;margin-bottom:6px}
+.cta-hard h3 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.cta-hard p{opacity:.8;margin-bottom:18px}
+.btn-white{display:inline-flex;padding:1rem 2.5rem;background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 100%);color:#fff;border:none;border-radius:var(--r-xl);font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;box-shadow:var(--shadow-glow);transition:all 200ms ease}
+.btn-white:hover{box-shadow:0 0 60px rgba(124,58,237,0.4);transform:translateY(-2px)}
+
+/* How it works */
+.section{margin:0 auto;padding:4rem 0;max-width:720px}
+.section h2{font-size:22px;font-weight:700;margin-bottom:2rem}
+.section h2 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.section.section-lavender{background:#F5F3FF;max-width:none;padding-left:16px;padding-right:16px;margin-left:-16px;margin-right:-16px}
+.section-lavender .section-inner{max-width:720px;margin:0 auto}
+@media(min-width:640px){.section.section-lavender{margin-left:-48px;margin-right:-48px;padding-left:48px;padding-right:48px}}
+.steps{display:grid;gap:24px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{text-align:center;padding:20px 12px}
+.step-n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-ultra-light);color:var(--primary);font-weight:700;font-size:15px;margin-bottom:10px}
+.step h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.step p{font-size:13px;color:var(--text2)}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-size:15px;font-weight:600;background:none;border:none;width:100%;text-align:left;color:var(--text);font-family:var(--sans)}
+.faq-q::after{content:'+';font-size:18px;color:var(--muted);flex-shrink:0;margin-left:12px}
+.faq-q.open::after{content:'\2212'}
+.faq-a{padding:0 0 18px;font-size:14px;color:var(--text2);line-height:1.7;display:none}
+.faq-a.open{display:block}
+
+/* Related tools */
+.related{display:grid;gap:14px}
+@media(min-width:640px){.related{grid-template-columns:repeat(3,1fr)}}
+.related a{padding:1.25rem;border:1px solid var(--border-light);border-radius:var(--r-2xl);text-decoration:none;color:var(--text);background:var(--white);transition:all 300ms ease}
+.related a:hover{border-color:var(--primary-light);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.related h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.related p{font-size:12px;color:var(--text2)}
+
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:64px;text-align:center;font-size:13px;color:var(--muted)}
+.footer a{color:var(--primary);text-decoration:none}
+
+/* Email gate */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center}
+.overlay.show{display:flex}
+.modal{background:var(--white);border-radius:var(--r-2xl);padding:2rem;max-width:440px;width:90%;box-shadow:var(--shadow-xl)}
+.modal h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.modal p{color:var(--text2);margin-bottom:16px;font-size:14px}
+.modal input{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);font-size:0.9375rem;font-family:var(--sans);margin-bottom:10px;transition:all 150ms ease}
+.modal input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+.modal .fine{font-size:11px;color:var(--muted);margin-top:10px}
+
+/* Print: clean business case */
+@media print{
+  .nav,.cta-soft,.cta-hard,.footer,.related,.steps,.faq-item,.overlay,.hero-wrap,.advanced-toggle,.advanced-panel,.section,.btn,.btn-outline{display:none!important}
+  body{background:#fff;color:#1F2937;font-size:11px;line-height:1.5}
+  .page{padding:0;max-width:100%}
+  .tool{max-width:100%;margin:0}
+  .inputs-section{box-shadow:none;border:none;padding:0;margin-bottom:16px}
+  .print-header{display:block!important}
+  .results h2{font-size:14px;margin-bottom:8px}
+  .metrics{gap:8px;margin-bottom:16px}
+  .metric{padding:10px;border:1px solid #E5E7EB}
+  .metric-label{font-size:9px}
+  .metric-value{font-size:18px}
+  .chart-container{box-shadow:none;border:1px solid #E5E7EB;padding:12px}
+  .bar-chart{height:120px}
+  .channel-table{font-size:11px}
+  .channel-table td,.channel-table th{padding:6px 8px}
+  .infra-explainer{box-shadow:none;border:1px solid #E5E7EB;padding:12px}
+  .cost-table{font-size:11px}
+  .funnel-section{margin-bottom:16px}
+  .chart-section,.channels-section,.infra-explainer{margin-bottom:16px}
+  print-color-adjust:exact;-webkit-print-color-adjust:exact;
+}
+.print-header{display:none;text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #7C3AED}
+.print-header h1{font-size:20px;font-weight:800;margin-bottom:4px}
+.print-header p{font-size:12px;color:#6B7280}
+.print-header .print-meta{font-size:10px;color:#9CA3AF;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<nav class="nav">
+  <a href="https://overloop.com" class="nav-logo"><img src="https://cdn.prod.website-files.com/6836b1fcfa0b25a3fed39db6/69d4cb02974de95cb4df5bd0_Logotype%20-%20Black.png" alt="Overloop" class="nav-logo-img"></a>
+  <div class="nav-links">
+    <a href="https://overloop.com/features">Fonctionnalites</a>
+    <a href="https://overloop.com/pricing">Tarifs</a>
+    <a href="/fr/" class="nav-link-active">Outils gratuits</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://app.overloop.ai/session/login" class="nav-login">Connexion</a>
+    <a href="https://app.overloop.ai/session/signup" class="btn btn-nav">Essai gratuit</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+<div class="hero">
+  <h1>Le cold email, <em>rentable pour vous ?</em></h1>
+  <p>La plupart des fondateurs devinent. Cet outil vous donne les vrais chiffres pour arreter de debattre et commencer a envoyer.</p>
+</div>
+</div>
+
+<div class="tool">
+  <!-- Print-only header -->
+  <div class="print-header" id="printHeader">
+    <h1>Business case outbound</h1>
+    <p id="printSubtitle">Projection ROI cold email — SaaS B2B — 2 000 prospects/mois</p>
+    <div class="print-meta">Genere sur overloop.com/tools/roi-calculator — <span id="printDate"></span></div>
+  </div>
+
+  <!-- INPUTS: 2 main, rest in Advanced -->
+  <div class="inputs-section">
+    <div class="input-group" style="margin-bottom:20px">
+      <label class="input-label">Votre secteur</label>
+      <select id="industry" onchange="onIndustryChange()">
+        <option value="saas">SaaS B2B</option>
+        <option value="agency">Agency / Services</option>
+        <option value="fintech">Fintech</option>
+        <option value="ecom">E-commerce B2B</option>
+        <option value="health">Healthcare</option>
+        <option value="consulting">Consulting</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <!-- Benchmarks card: always visible, shows what the industry dropdown sets -->
+    <div class="benchmarks-card" id="benchCard">
+      <div class="bench-title">Benchmarks pour <strong id="benchIndustry">SaaS B2B</strong></div>
+      <div class="bench-grid">
+        <div class="bench-item"><span class="bench-val" id="benchOpen">45%</span><span class="bench-lbl">taux d'ouverture</span></div>
+        <div class="bench-item"><span class="bench-val" id="benchReply">3.2%</span><span class="bench-lbl">taux de reponse</span></div>
+        <div class="bench-item"><span class="bench-val" id="benchDeal">$15,000</span><span class="bench-lbl">deal moyen</span></div>
+        <div class="bench-item"><span class="bench-val" id="benchCycle">8 sem.</span><span class="bench-lbl">cycle de vente</span></div>
+      </div>
+    </div>
+
+    <div class="input-group" style="margin-top:24px">
+      <label class="input-label">Prospects a contacter <span class="input-value" id="prospectsVal">2,000/mois</span></label>
+      <input type="range" id="prospects" min="0" max="14" value="7" oninput="upd()">
+      <div class="prospects-context" id="prospectsCtx">Soit environ <strong>100/jour</strong> (20 jours ouvres)</div>
+    </div>
+
+    <!-- Advanced: collapsed by default -->
+    <button class="advanced-toggle" id="advToggle" onclick="document.getElementById('advPanel').classList.toggle('open');this.classList.toggle('open')">
+      Ajuster les hypotheses
+    </button>
+    <div class="advanced-panel" id="advPanel">
+      <div class="input-row input-row-2" style="margin-top:20px">
+        <div class="input-group">
+          <label class="input-label">Deal moyen <span class="input-value" id="dealVal">$15,000</span></label>
+          <input type="range" id="deal" min="0" max="10" value="5" oninput="upd()">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Cycle de vente <span class="input-value" id="cycleVal">8 semaines</span></label>
+          <input type="range" id="cycle" min="1" max="52" value="8" oninput="upd()">
+        </div>
+      </div>
+      <div class="input-row input-row-4">
+        <div class="input-group">
+          <label class="input-label">Taux d'ouverture <span class="input-value" id="openVal">45%</span></label>
+          <input type="range" id="openRate" min="10" max="80" value="45" oninput="upd()">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Taux de reponse <span class="input-value" id="replyVal">3.2%</span></label>
+          <input type="range" id="replyRate" min="5" max="150" value="32" oninput="upd()">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Taux de meeting <span class="input-value" id="meetVal">35%</span></label>
+          <input type="range" id="meetRate" min="5" max="60" value="35" oninput="upd()">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Taux de closing <span class="input-value" id="closeVal">20%</span></label>
+          <input type="range" id="closeRate" min="5" max="50" value="20" oninput="upd()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results">
+
+    <!-- Key Metrics -->
+    <div class="metrics">
+      <div class="metric"><div class="metric-label">Revenu mensuel</div><div class="metric-value" id="mRevenue">$0</div></div>
+      <div class="metric"><div class="metric-label">Revenu annuel</div><div class="metric-value" id="aRevenue">$0</div></div>
+      <div class="metric"><div class="metric-label">ROI</div><div class="metric-value green" id="roi">0%</div></div>
+      <div class="metric"><div class="metric-label">Cout par meeting</div><div class="metric-value" id="cpm">$0</div></div>
+      <div class="metric"><div class="metric-label">Cout par deal</div><div class="metric-value" id="cpd">$0</div></div>
+      <div class="metric"><div class="metric-label">Rentabilite</div><div class="metric-value green" id="breakeven">Mois 0</div></div>
+    </div>
+
+    <!-- Funnel -->
+    <div class="funnel-section">
+      <h2>Ce qui arrive a vos prospects</h2>
+      <svg class="funnel-svg" viewBox="0 0 600 280" id="funnelSvg"></svg>
+    </div>
+
+    <!-- Revenue chart: simple monthly bars -->
+    <div class="chart-section">
+      <h2>Les 2 premiers mois sont durs. C'est normal.</h2>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:16px">Vos domaines sont en warmup et votre cycle de vente n'a pas encore produit ses premiers deals. Tous les programmes outbound ressemblent a ca au depart. Ceux qui gagnent sont ceux qui tiennent.</p>
+      <div class="chart-container">
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--muted)">
+        <span>🟣 Revenu mensuel</span>
+        <span style="border-left:1px dashed var(--muted);padding-left:8px">--- Cout mensuel (<span id="chartCostLabel">$0</span>)</span>
+      </div>
+    </div>
+
+    <!-- Channel comparison: table with CAC -->
+    <div class="channels-section">
+      <h2>Meme budget. Resultats differents.</h2>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:16px">Que genererait <span id="channelBudget" style="font-weight:600">$0</span>/an si vous le depensez en ads ou en recrutant un SDR ?</p>
+      <div class="channel-table-wrap">
+        <table class="channel-table" id="channelTable">
+          <thead>
+            <tr>
+              <th>Canal</th>
+              <th>CAC moyen</th>
+              <th>Deals/an</th>
+              <th>Revenu/an</th>
+              <th>ROI</th>
+            </tr>
+          </thead>
+          <tbody id="channelBody"></tbody>
+        </table>
+      </div>
+      <p class="channel-source" id="channelSource"></p>
+    </div>
+
+    <!-- Infrastructure explainer: grandma-proof -->
+    <div class="infra-explainer">
+      <h2>Ce qu'il faut pour envoyer <span id="infraProspects" style="color:var(--primary)">2 000</span> emails/mois</h2>
+      <div class="infra-math" id="infraMath"></div>
+      <div class="infra-visual" id="infraVisual"></div>
+    </div>
+
+    <!-- Cost breakdown -->
+    <div>
+      <h2>Ce que ca coute vraiment</h2>
+      <table class="cost-table">
+        <thead><tr><th>Poste</th><th>Mensuel</th><th>Annuel</th></tr></thead>
+        <tbody id="costBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- Soft CTA -->
+<div class="tool" style="margin-bottom:0">
+  <div class="cta-soft">
+    <h3 id="ctaLine">Votre outbound peut generer $0/mois a regime</h3>
+    <p>Vous avez vu les chiffres. La question n'est pas si ca marche. C'est quand vous commencez.</p>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+      <a href="https://app.overloop.ai/session/signup" class="btn" style="width:100%;max-width:320px">Essayer Overloop gratuitement</a>
+      <button class="btn btn-outline" style="width:100%;max-width:320px" onclick="showGate()" id="ctaDownload">Telecharger le business case PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- How it works -->
+<div class="section">
+  <h2>Comment ca marche</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Choisissez votre secteur</h3><p>Les benchmarks se remplissent automatiquement a partir de donnees outbound reelles. Pas de devinette.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Voyez les resultats</h3><p>Courbe de revenus, comparaison des couts, point de rentabilite. Mis a jour en temps reel quand vous bougez le curseur.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Envoyez-le a votre CFO</h3><p>Telechargez un business case d'une page. Budget valide en un meeting.</p></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section section-lavender">
+  <div class="section-inner">
+    <h2>Questions <em>frequentes</em></h2>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Qu'est-ce qu'un calculateur de ROI cold email ?</button><div class="faq-a">Un calculateur de ROI cold email estime le revenu que vos campagnes d'emailing outbound vont generer par rapport a leur cout. Ce calculateur va plus loin : il modelise la periode de montee en charge, compare le cold email aux autres canaux, et genere un business case que vous pouvez presenter a votre equipe.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">D'ou viennent les benchmarks par secteur ?</button><div class="faq-a">Les taux d'ouverture, de reponse et de meeting par defaut sont bases sur des donnees agregees de campagnes outbound dans chaque secteur. Le SaaS B2B affiche en general 45% de taux d'ouverture et 3.2% de taux de reponse, tandis que Agency/Services a des ouvertures plus basses (38%) mais des reponses plus elevees (5.1%). Vous pouvez ajuster chaque chiffre pour correspondre a vos propres donnees.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Pourquoi le mois 1 affiche presque zero revenu ?</button><div class="faq-a">Deux raisons. D'abord, les nouveaux domaines email ont besoin de 2 a 4 semaines de warmup avant de pouvoir envoyer a plein volume. Ensuite, votre cycle de vente fait que les premiers meetings du mois 1 ne se closent qu'au mois 2-3. Cette montee en puissance est integree a la projection pour que vous ayez une image realiste, pas gonflee.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Comment fonctionne la comparaison de canaux ?</button><div class="faq-a">Le tableau utilise le meme budget annuel pour tous les canaux. Pour chaque canal, on applique le cout d'acquisition client (CAC) moyen du secteur pour calculer combien de deals ce budget genererait. Les donnees CAC proviennent de benchmarks publies pour Google Ads, LinkedIn Ads, et les couts de recrutement SDR par secteur. Le cold email a generalement le CAC le plus bas car les couts d'infra (domaines + boites mail + outil) sont minimes par rapport au volume produit.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Ce calculateur est vraiment gratuit ?</button><div class="faq-a">Oui. Tous les resultats, le funnel, le graphique de revenus et la comparaison de canaux sont 100% gratuits sans inscription. L'export PDF demande votre email pour pouvoir vous envoyer le document business case.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Combien de domaines et de boites mail me faut-il ?</button><div class="faq-a">La section infrastructure le calcule automatiquement. La regle : chaque boite mail envoie max 50 emails/jour, chaque domaine heberge 2 boites mail, et il y a 20 jours ouvres par mois. Pour 2 000 prospects avec une sequence de 3 emails, il faut environ 6 domaines et 12 boites mail.</div></div>
+  </div>
+</div>
+
+<!-- Related tools -->
+<div class="section">
+  <h2>Plus d'outils gratuits</h2>
+  <div class="related">
+    <a href="/fr/infrastructure-calculator/"><h4>Blueprint d'infrastructure</h4><p>Combien de domaines et boites mail vous faut-il, avec un calendrier de warmup visuel.</p></a>
+    <a href="/fr/spam-checker/"><h4>Coach delivrabilite email</h4><p>Collez votre email, obtenez un score sur 7 dimensions avec des suggestions de reecriture IA.</p></a>
+    <a href="/fr/subject-line-tester/"><h4>Simulateur de boite de reception</h4><p>Voyez votre objet dans une boite Gmail simulee avant d'envoyer.</p></a>
+  </div>
+</div>
+
+<!-- Hard CTA -->
+<div class="cta-hard">
+  <h3>Les chiffres parlent. Maintenant, <em>passez a l'action.</em></h3>
+  <p>Configurez votre outbound en 15 minutes. Premiers meetings dans 3 semaines.</p>
+  <a href="https://app.overloop.com/signup" class="btn-white">Essayer Overloop gratuitement</a>
+</div>
+
+<footer class="footer"><a href="https://overloop.com">Overloop</a> — Plateforme de vente outbound propulsee par l'IA</footer>
+
+</div>
+
+<!-- Email gate -->
+<div class="overlay" id="gate">
+  <div class="modal">
+    <h3 id="gateTitle">Telechargez votre business case</h3>
+    <p id="gateDesc">Entrez votre email pro. On ouvrira la fenetre d'impression pour sauvegarder en PDF.</p>
+    <input type="email" id="gateEmail" placeholder="vous@entreprise.com">
+    <button class="btn" style="width:100%" onclick="submitGate()" id="gateBtn">Telecharger le PDF</button>
+    <div class="fine">On enregistre votre email pour vous envoyer des conseils outbound. Pas de spam.</div>
+    <div class="gate-success" id="gateSuccess" style="display:none;text-align:center;padding:1.5rem 0">
+      <div style="font-size:32px;margin-bottom:8px">✓</div>
+      <div style="font-weight:700;font-size:16px;margin-bottom:4px">Business case envoye !</div>
+      <div style="color:var(--text2);font-size:13px">Verifiez votre boite de reception. Vous pouvez aussi mettre cette page en favoris — vos chiffres sont sauvegardes.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== Data =====
+const benchmarks = {
+  saas:       {open:45, reply:32, deal:5, cycle:8,  label:'SaaS B2B',         gCac:341, lCac:536, sCac:812,  gRoas:3.5, lRoas:2.5},
+  agency:     {open:38, reply:51, deal:3, cycle:4,  label:'Agency / Services', gCac:280, lCac:420, sCac:650,  gRoas:4.0, lRoas:2.8},
+  fintech:    {open:41, reply:28, deal:6, cycle:12, label:'Fintech',           gCac:450, lCac:680, sCac:1050, gRoas:3.0, lRoas:2.0},
+  ecom:       {open:35, reply:45, deal:2, cycle:3,  label:'E-commerce B2B',    gCac:220, lCac:350, sCac:520,  gRoas:4.5, lRoas:2.0},
+  health:     {open:32, reply:21, deal:7, cycle:16, label:'Healthcare',        gCac:520, lCac:780, sCac:1200, gRoas:2.5, lRoas:1.8},
+  consulting: {open:40, reply:40, deal:4, cycle:6,  label:'Consulting',        gCac:310, lCac:480, sCac:750,  gRoas:3.5, lRoas:2.5},
+  other:      {open:38, reply:35, deal:5, cycle:8,  label:'Other',             gCac:350, lCac:520, sCac:800,  gRoas:3.5, lRoas:2.2}
+};
+// gCac = Google Ads avg CAC, lCac = LinkedIn Ads avg CAC, sCac = SDR avg CAC (by industry)
+const dealSteps = [500,1000,2000,5000,10000,15000,25000,50000,100000,250000,500000];
+// Logarithmic prospect steps: gentle curve from 100 to 10,000
+const prospectSteps = [100,200,300,500,750,1000,1500,2000,3000,4000,5000,6000,7500,9000,10000];
+
+// ===== Helpers =====
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString('en-US');
+const fmtC = n => '$' + fmt(Math.round(n));
+const fmtPct = n => n.toFixed(1) + '%';
+
+// ===== Input handlers =====
+function onIndustryChange() {
+  const b = benchmarks[$('industry').value];
+  $('openRate').value = b.open;
+  $('replyRate').value = b.reply;
+  $('deal').value = b.deal;
+  $('cycle').value = b.cycle;
+  // Update benchmark card
+  $('benchIndustry').textContent = b.label;
+  $('benchOpen').textContent = b.open + '%';
+  $('benchReply').textContent = (b.reply / 10).toFixed(1) + '%';
+  $('benchDeal').textContent = fmtC(dealSteps[b.deal]);
+  $('benchCycle').textContent = b.cycle + ' sem.';
+  upd();
+}
+
+function getInputs() {
+  const dealIdx = parseInt($('deal').value);
+  const prospIdx = parseInt($('prospects').value);
+  const dealSize = dealSteps[dealIdx] || 15000;
+  const prospects = prospectSteps[prospIdx] || 2000;
+  return {
+    industry: $('industry').value,
+    dealSize,
+    prospects,
+    cycleWeeks: parseInt($('cycle').value),
+    openRate: parseInt($('openRate').value) / 100,
+    replyRate: parseInt($('replyRate').value) / 1000,
+    meetRate: parseInt($('meetRate').value) / 100,
+    closeRate: parseInt($('closeRate').value) / 100
+  };
+}
+
+// ===== Core calculation =====
+function calc(i) {
+  const opens = i.prospects * i.openRate;
+  const replies = i.prospects * i.replyRate;
+  const meetings = replies * i.meetRate;
+  const deals = meetings * i.closeRate;
+  const monthlyRev = deals * i.dealSize;
+
+  // Infra
+  const emailsPerMonth = i.prospects * 3;
+  const emailsPerDay = emailsPerMonth / 20;
+  const mailboxes = Math.max(1, Math.ceil(emailsPerDay / 50));
+  const domains = Math.max(1, Math.ceil(mailboxes / 2));
+  const domainCost = domains * 0.92;
+  const mailboxCost = mailboxes * 6;
+  const toolCost = 99;
+  const monthlyCost = domainCost + mailboxCost + toolCost;
+
+  // Ramp-up model (12 months)
+  const vol = [0.25, 0.50, 0.75, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cycleMonths = Math.max(1, Math.ceil(i.cycleWeeks / 4));
+  let cumRev = [], cumCost = [], monthRev = [];
+  let cR = 0, cC = 0;
+  for (let m = 0; m < 12; m++) {
+    const sendsThisMonth = i.prospects * vol[m];
+    const dealsFromPast = m >= cycleMonths ? (i.prospects * vol[m - cycleMonths] * i.replyRate * i.meetRate * i.closeRate) : 0;
+    const rev = dealsFromPast * i.dealSize;
+    cR += rev; cC += monthlyCost;
+    cumRev.push(cR); cumCost.push(cC); monthRev.push(rev);
+  }
+
+  const breakEven = cumRev.findIndex((r, idx) => r > cumCost[idx]);
+  const annualRev = cR;
+  const annualCost = monthlyCost * 12;
+  const roi = annualCost > 0 ? ((annualRev - annualCost) / annualCost * 100) : 0;
+  const costPerMeeting = meetings > 0 ? monthlyCost / meetings : 0;
+  const costPerDeal = deals > 0 ? monthlyCost / deals : 0;
+
+  return {opens, replies, meetings, deals, monthlyRev, annualRev, annualCost, roi,
+    costPerMeeting, costPerDeal, breakEven, domains, mailboxes, domainCost, mailboxCost,
+    toolCost, monthlyCost, cumRev, cumCost, monthRev, prospects: i.prospects,
+    emailsPerMonth, emailsPerDay, industry: i.industry, dealSize: i.dealSize};
+}
+
+// ===== Render =====
+function upd() {
+  const i = getInputs();
+
+  // Update input displays
+  $('dealVal').textContent = fmtC(i.dealSize);
+  $('prospectsVal').textContent = fmt(i.prospects) + '/mois';
+  $('cycleVal').textContent = i.cycleWeeks + (i.cycleWeeks === 1 ? ' semaine' : ' semaines');
+  $('openVal').textContent = Math.round(i.openRate * 100) + '%';
+  $('replyVal').textContent = (i.replyRate * 100).toFixed(1) + '%';
+  $('meetVal').textContent = Math.round(i.meetRate * 100) + '%';
+  $('closeVal').textContent = Math.round(i.closeRate * 100) + '%';
+
+  // Prospects per day context
+  const perDay = Math.round(i.prospects / 20);
+  $('prospectsCtx').innerHTML = "Soit environ <strong>" + fmt(perDay) + ' prospects/jour</strong> (20 jours ouvres)';
+
+  const r = calc(i);
+
+  // Metrics
+  $('mRevenue').textContent = fmtC(r.monthlyRev);
+  $('aRevenue').textContent = fmtC(r.annualRev);
+  $('roi').textContent = fmt(Math.round(r.roi)) + '%';
+  $('cpm').textContent = fmtC(r.costPerMeeting);
+  $('cpd').textContent = fmtC(r.costPerDeal);
+  $('breakeven').textContent = r.breakEven >= 0 ? 'Mois ' + (r.breakEven + 1) : '12+ mois';
+
+  // CTA line
+  $('ctaLine').textContent = 'Votre outbound peut generer ' + fmtC(r.monthlyRev) + '/mois a regime';
+
+  drawFunnel(r, i);
+  drawChart(r);
+  drawChannels(r);
+  drawInfra(r);
+  drawCosts(r);
+}
+
+// ===== Funnel SVG =====
+function drawFunnel(r, i) {
+  const stages = [
+    {label: 'Prospects contactes', value: fmt(i.prospects) + '/mois', pct: ''},
+    {label: 'Ouvertures', value: fmt(Math.round(r.opens)), pct: Math.round(i.openRate * 100) + '%'},
+    {label: 'Reponses', value: fmt(Math.round(r.replies)), pct: (i.replyRate * 100).toFixed(1) + '%'},
+    {label: 'Meetings', value: r.meetings.toFixed(1) + '/mois', pct: Math.round(i.meetRate * 100) + '%'},
+    {label: 'Deals closes', value: r.deals.toFixed(1) + '/mois', pct: Math.round(i.closeRate * 100) + '%'},
+    {label: 'Revenu', value: fmtC(r.monthlyRev) + '/mois', pct: ''}
+  ];
+  const w = 600, rowH = 44, pad = 20;
+  let svg = '';
+  stages.forEach((s, idx) => {
+    const ratio = idx === 0 ? 1 : idx === stages.length - 1 ? 0.18 : (1 - idx / (stages.length - 1)) * 0.82 + 0.18;
+    const bw = Math.max(60, w * 0.65 * ratio);
+    const x = (w - bw) / 2;
+    const y = idx * rowH + pad;
+    const alpha = 0.08 + (1 - idx / stages.length) * 0.12;
+    svg += `<rect x="${x}" y="${y}" width="${bw}" height="${rowH - 4}" rx="4" fill="var(--primary)" opacity="${alpha}"/>`;
+    svg += `<text x="${w/2}" y="${y + rowH/2}" text-anchor="middle" dominant-baseline="central" font-family="var(--sans)" font-size="13" font-weight="600" fill="var(--text)">${s.label}: ${s.value}</text>`;
+    if (s.pct) {
+      svg += `<text x="${x + bw + 10}" y="${y + rowH/2}" dominant-baseline="central" font-family="var(--mono)" font-size="11" fill="var(--muted)">${s.pct}</text>`;
+    }
+  });
+  $('funnelSvg').innerHTML = svg;
+}
+
+// ===== Bar Chart (monthly revenue, simple) =====
+function drawChart(r) {
+  const chartH = 160; // px for the bar area
+  const maxRev = Math.max(...r.monthRev) * 1.15 || 1;
+  $('chartCostLabel').textContent = fmtC(r.monthlyCost);
+
+  let html = '';
+  r.monthRev.forEach((rev, m) => {
+    const h = Math.max(2, (rev / maxRev) * chartH);
+    const isPre = rev < r.monthlyCost;
+    const bg = isPre ? '#EDE9FE' : 'linear-gradient(180deg, #7C3AED, #5B21B6)';
+    const valColor = isPre ? 'var(--muted)' : 'var(--text)';
+    const label = rev >= 1000 ? '$' + Math.round(rev/1000) + 'K' : rev > 0 ? fmtC(rev) : '$0';
+    html += `<div class="bar-col">
+      <div class="bar-col-top">
+        <div class="bar-val" style="color:${valColor}">${label}</div>
+        <div class="bar-fill" style="height:${h}px;background:${bg}"></div>
+      </div>
+      <div class="bar-label">M${m+1}</div>
+    </div>`;
+  });
+  $('barChart').innerHTML = html;
+}
+
+// ===== Channel Comparison (table with CAC) =====
+function drawChannels(r) {
+  const b = benchmarks[r.industry || 'saas'];
+  const annualCost = r.monthlyCost * 12;
+  const coldCac = r.deals > 0 ? Math.round(r.monthlyCost / r.deals) : 0;
+  const coldDeals = Math.round(r.deals * 10); // ~10 productive months
+  const coldRev = r.annualRev;
+  const coldRoi = annualCost > 0 ? Math.round((coldRev - annualCost) / annualCost * 100) : 0;
+
+  const gDeals = annualCost > 0 ? Math.round(annualCost / b.gCac) : 0;
+  const gRev = gDeals * r.dealSize;
+  const gRoi = annualCost > 0 ? Math.round((gRev - annualCost) / annualCost * 100) : 0;
+
+  const lDeals = annualCost > 0 ? Math.round(annualCost / b.lCac) : 0;
+  const lRev = lDeals * r.dealSize;
+  const lRoi = annualCost > 0 ? Math.round((lRev - annualCost) / annualCost * 100) : 0;
+
+  const sdrCost = 62400;
+  const sDeals = sdrCost > 0 ? Math.round(sdrCost / b.sCac) : 0;
+  const sRev = sDeals * r.dealSize;
+  const sRoi = sdrCost > 0 ? Math.round((sRev - sdrCost) / sdrCost * 100) : 0;
+
+  $('channelBudget').textContent = fmtC(annualCost);
+
+  function roiCell(v) {
+    return v > 0
+      ? `<span class="ch-roi-pos">+${fmt(v)}%</span>`
+      : `<span class="ch-roi-neg">${fmt(v)}%</span>`;
+  }
+
+  const rows = [
+    {name:'Cold Email (Overloop)', cac: coldCac, note:'Vos donnees', deals: coldDeals, rev: coldRev, roi: coldRoi, winner: true},
+    {name:'Google Ads', cac: b.gCac, note: b.label + ' moy.', deals: gDeals, rev: gRev, roi: gRoi, winner: false},
+    {name:'LinkedIn Ads', cac: b.lCac, note: b.label + ' moy.', deals: lDeals, rev: lRev, roi: lRoi, winner: false},
+    {name:'Recruter un SDR ($62K/an)', cac: b.sCac, note: b.label + ' moy.', deals: sDeals, rev: sRev, roi: sRoi, winner: false}
+  ];
+
+  let html = '';
+  rows.forEach(ch => {
+    html += `<tr class="${ch.winner ? 'ch-winner' : ''}">
+      <td>${ch.name}</td>
+      <td>${fmtC(ch.cac)}<span class="ch-cac-note">${ch.note}</span></td>
+      <td>${fmt(ch.deals)}</td>
+      <td>${fmtC(ch.rev)}</td>
+      <td>${roiCell(ch.roi)}</td>
+    </tr>`;
+  });
+  $('channelBody').innerHTML = html;
+  $('channelSource').textContent = 'Benchmarks CAC bases sur les moyennes du secteur ' + b.label + ' (Google/LinkedIn : donnees plateformes publicitaires, SDR : salaire moyen US + outils + charges).';
+}
+
+// ===== Cost Breakdown =====
+function drawCosts(r) {
+  $('costBody').innerHTML = `
+    <tr><td>Domaines (${r.domains} x $0.92/mois)</td><td>${fmtC(r.domainCost)}</td><td>${fmtC(r.domainCost*12)}</td></tr>
+    <tr><td>Boites mail (${r.mailboxes} x $6/mois)</td><td>${fmtC(r.mailboxCost)}</td><td>${fmtC(r.mailboxCost*12)}</td></tr>
+    <tr><td>Abonnement Overloop</td><td>$99</td><td>$1,188</td></tr>
+    <tr><td>Total</td><td>${fmtC(r.monthlyCost)}</td><td>${fmtC(r.monthlyCost*12)}</td></tr>`;
+}
+
+// ===== Infra Explainer (grandma-proof) =====
+function drawInfra(r) {
+  $('infraProspects').textContent = fmt(r.prospects);
+
+  // The math, explained simply
+  $('infraMath').innerHTML = `
+    <span class="num">${fmt(r.prospects)}</span> prospects
+    <span class="op">&times;</span>
+    <span class="num">3</span> emails chacun
+    <span class="op">=</span>
+    <span class="num">${fmt(r.emailsPerMonth)}</span> emails/mois
+    <span class="op">&rarr;</span>
+    <span class="num">${fmt(Math.round(r.emailsPerDay))}</span> emails/jour
+  `;
+
+  // Visual blocks
+  $('infraVisual').innerHTML = `
+    <div class="infra-block">
+      <div class="ib-icon">📧</div>
+      <div class="ib-num">${fmt(Math.round(r.emailsPerDay))}</div>
+      <div class="ib-label">emails par jour</div>
+      <div class="ib-sub">${fmt(r.emailsPerMonth)} par mois</div>
+    </div>
+    <div class="infra-block">
+      <div class="ib-icon">📬</div>
+      <div class="ib-num">${r.mailboxes}</div>
+      <div class="ib-label">boites mail</div>
+      <div class="ib-sub">50 emails/jour chacune</div>
+    </div>
+    <div class="infra-block">
+      <div class="ib-icon">🌐</div>
+      <div class="ib-num">${r.domains}</div>
+      <div class="ib-label">domaines</div>
+      <div class="ib-sub">2 boites mail par domaine</div>
+    </div>
+    <div class="infra-block">
+      <div class="ib-icon">💰</div>
+      <div class="ib-num">${fmtC(r.monthlyCost)}</div>
+      <div class="ib-label">cout mensuel total</div>
+      <div class="ib-sub">domaines + boites mail + Overloop</div>
+    </div>
+  `;
+}
+
+// ===== Email Gate + PDF Download =====
+const isMobile = window.matchMedia('(max-width: 639px)').matches;
+
+function showGate() {
+  // Adapt modal text for mobile vs desktop
+  if (isMobile) {
+    $('gateTitle').textContent = 'Recevez votre business case';
+    $('gateDesc').textContent = 'Entrez votre email. On vous envoie un resume avec tous vos chiffres.';
+    $('gateBtn').textContent = 'Recevoir les resultats';
+  } else {
+    $('gateTitle').textContent = 'Telechargez votre business case';
+    $('gateDesc').textContent = 'Entrez votre email pro. On ouvrira la fenetre d\'impression pour sauvegarder en PDF.';
+    $('gateBtn').textContent = 'Telecharger le PDF';
+  }
+  // Reset state
+  $('gateEmail').style.display = '';
+  $('gateBtn').style.display = '';
+  $('gateDesc').style.display = '';
+  $('gateSuccess').style.display = 'none';
+  $('gate').classList.add('show');
+}
+
+function submitGate() {
+  const email = $('gateEmail').value;
+  if (!email || !email.includes('@')) {
+    $('gateEmail').style.borderColor = '#EF4444';
+    return;
+  }
+  $('gateEmail').style.borderColor = '';
+
+  // Capture the lead via FormSubmit.co
+  const LEADS_EMAIL = 'nicolas@sortlist.com';
+  const i = getInputs();
+  const r = calc(i);
+  const b = benchmarks[i.industry];
+  try {
+    fetch('https://formsubmit.co/ajax/' + LEADS_EMAIL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        email: email,
+        industry: b.label,
+        prospects: fmt(i.prospects) + '/mois',
+        deal_size: fmtC(i.dealSize),
+        monthly_revenue: fmtC(r.monthlyRev),
+        annual_revenue: fmtC(r.annualRev),
+        roi: Math.round(r.roi) + '%',
+        break_even: r.breakEven >= 0 ? 'Mois ' + (r.breakEven + 1) : '12+ mois',
+        domains_needed: r.domains,
+        mailboxes_needed: r.mailboxes,
+        monthly_cost: fmtC(r.monthlyCost),
+        _subject: 'New lead from ROI Calculator (FR): ' + email,
+        _template: 'table'
+      })
+    });
+  } catch(e) {}
+
+  if (isMobile) {
+    // On mobile: show success message in modal
+    $('gateEmail').style.display = 'none';
+    $('gateBtn').style.display = 'none';
+    $('gateDesc').style.display = 'none';
+    $('gateSuccess').style.display = 'block';
+    // Auto-close after 3s
+    setTimeout(() => $('gate').classList.remove('show'), 3000);
+  } else {
+    // On desktop: close modal + print
+    $('printSubtitle').textContent = 'Projection ROI cold email — ' + b.label + ' — ' + fmt(i.prospects) + ' prospects/mois';
+    $('printDate').textContent = new Date().toLocaleDateString('fr-FR', {year:'numeric', month:'long', day:'numeric'});
+    $('gate').classList.remove('show');
+    setTimeout(() => window.print(), 300);
+  }
+}
+$('gate').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
+
+// ===== Init =====
+if (isMobile && $('ctaDownload')) $('ctaDownload').textContent = 'Recevoir le business case par email';
+upd();
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculateur de ROI Cold Email","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce qu'un calculateur de ROI cold email ?","acceptedAnswer":{"@type":"Answer","text":"Un calculateur de ROI cold email estime le revenu que vos campagnes d'emailing outbound vont generer par rapport a leur cout. Ce calculateur va plus loin : il modelise la periode de montee en charge, compare le cold email aux autres canaux, et genere un business case que vous pouvez presenter a votre equipe."}},{"@type":"Question","name":"Pourquoi le mois 1 affiche presque zero revenu ?","acceptedAnswer":{"@type":"Answer","text":"Deux raisons. Les nouveaux domaines email ont besoin de 2 a 4 semaines de warmup avant de pouvoir envoyer a plein volume. Et votre cycle de vente fait que les premiers meetings du mois 1 ne se closent qu'au mois 2-3."}},{"@type":"Question","name":"Ce calculateur est vraiment gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Tous les resultats, le funnel, le graphique de revenus et la comparaison de canaux sont 100% gratuits sans inscription. L'export PDF demande votre email pour pouvoir vous envoyer le document business case."}}]}
+</script>
+</body>
+</html>
